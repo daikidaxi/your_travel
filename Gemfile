@@ -49,6 +49,10 @@ gem 'devise-i18n' # devise日本語化
 # cancancan  権限
 gem 'cancancan'
 
+# bootstrap
+gem 'webpacker', '~> 3.5'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
