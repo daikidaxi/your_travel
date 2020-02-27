@@ -46,6 +46,7 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'devise'  #, '>= 4.7.1'
 gem 'devise-i18n' # devise日本語化
+gem 'devise-i18n-views'
 # cancancan  権限
 gem 'cancancan'
 
