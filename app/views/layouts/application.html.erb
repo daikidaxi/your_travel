@@ -12,6 +12,7 @@
 
   <body>
     <header>
+      <%= link_to "Your Travel",root_path%>
       <nav>
         <% if user_signed_in? %>
         <strong><%= link_to current_user.username, root_path %></strong>
