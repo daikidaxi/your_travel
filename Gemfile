@@ -53,6 +53,10 @@ gem 'cancancan'
 # bootstrap
 gem 'webpacker', '~> 3.5'
 
+# 画像アップロード, リサイズ
+gem 'carrierwave'
+gem 'mini_magick'
+
 
 
 group :development, :test do
