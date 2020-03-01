@@ -164,6 +164,7 @@ module ApplicationHelper
       "ボツワナ",
       "ボリビア",
       "ポルトガル",
+      "香港",
       "ホンジュラス",
       "マケドニア旧ユーゴスラビア共和国",
       "マーシャル諸島",
@@ -199,6 +200,10 @@ module ApplicationHelper
       "レソト",
       "レバノン",
       "ロシア"]
+  end
+
+  def thenumberofcontries
+    allcontries.length
   end
 end
 
