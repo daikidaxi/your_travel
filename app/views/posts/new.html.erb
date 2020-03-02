@@ -1,0 +1,21 @@
+
+<p>訪れた国を入力してください</p>
+
+<%= form_for(@post) do |f| %>
+  <div class="field">
+    <%= f.label :country ,"国名"%><br />
+    <%= f.select :country, allcontries, class: 'country' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :content ,"感想"%><br />
+    <%= f.text_field :content, class: 'content' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :visited_date ,"訪問日（？）"%><br />
+    <%= f.date_select :visited_date, {:discard_day => true} %>
+  </div>
+
+  <%= f.submit "投稿" %>
+<% end %>

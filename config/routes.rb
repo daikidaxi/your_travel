@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+  get 'posts/edit'
+  get 'posts/index'
   get 'users/index'
   get 'users/show'
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
@@ -10,4 +13,5 @@ Rails.application.routes.draw do
   
   root 'top_page#home'
   resources :users
+  resources :posts
 end

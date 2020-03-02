@@ -202,7 +202,7 @@ module ApplicationHelper
       "ロシア"]
   end
 
-  def thenumberofcontries
+  def numberofcontries
     allcontries.length
   end
 end
