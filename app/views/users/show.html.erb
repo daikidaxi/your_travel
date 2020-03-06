@@ -1,4 +1,39 @@
-<%= @user.username %>, <%= @user.email %>
-<%= link_to "編集",edit_user_registration_path(params[:id])%>
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <div class="user_?">
+        <%= image_tag "#{@user.image}",size: "100x100", class:"icon_image" %><br/>
+        ユーザー名:<%= @user.name %><br/>
+        出身地:<%= @user.nationality %><br/>
+        訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
+        <% if current_user.id==@user.id %>
+          <%= link_to "編集",edit_user_registration_path(params[:id])%>
+        <% end %>
+      </div>
+    </section>
+  </aside>
+    <section class="user_content">
+      <section class="map_went_all">
+      </section>
+      <section class="last_visited">
+      </section>
+      <section class="user_posts">
+        <div class="col-md-8">
+          <% if @user.posts.any? %>  
+            <p>訪れた国</p>
+            <% @posts.each do |post|%>
+              <ul>
+                <%= render "visited" , post: post %>
+              </ul>
+            <% end %>
 
-<img src=<%= @user.image %> class = "icon_image">
+          <% else %>
+            <h2>あなたが訪れた国を投稿してください</h2>
+            <%= link_to "投稿する",new_post_path %>
+          <% end %>
+        </div>
+      </section>
+      <p>＊＊＊🍀いろんな機能の追加🍀＊＊＊</p>
+    </section>
+</div>

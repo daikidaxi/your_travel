@@ -10,3 +10,13 @@
   object-fit: cover;
   //タテヨコ比を変えないままトリミング
 }
+
+.user_info {
+  float: left;
+  width: 25%;
+}
+
+.user_content {
+  float: left;
+  width: 75%;
+}

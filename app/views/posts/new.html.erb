@@ -3,7 +3,7 @@
 
 <%= form_for(@post) do |f| %>
   <div class="field">
-    <%= f.label :country ,"国名"%><br />
+    <%= f.label :country ,"国名 (同じ国の時のエラーメッセージの表示を作る)"%><br />
     <%= f.select :country, allcontries, class: 'country' %>
   </div>
   
@@ -13,9 +13,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :visited_date ,"訪問日（？）"%><br />
-    <%= f.date_select :visited_date, {:discard_day => true} %>
+    <%= f.label :visited_date ,"訪問日（年、日をつける）"%><br />
+    <%= f.date_select :visited_date%>
+  </div>
+
+  <div class="field">
+    <%= f.label "写真"%><br />
   </div>
 
   <%= f.submit "投稿" %>
 <% end %>
+
+<p>ダメだったときのredirectを記述</p>
