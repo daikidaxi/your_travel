@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  
   def index
     @users=User.all
   end
 
   def show
-    @user=User.find(params[:id])
+    @user=User.find_by(id: params[:id])
+    @posts=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC')
   end
 
   # def update
