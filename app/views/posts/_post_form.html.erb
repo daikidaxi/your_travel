@@ -1,0 +1,23 @@
+<%= form_for @post do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.label :country ,"国名"%><br />
+    <%= f.select :country, allcontries, class: '国名' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :content ,"感想"%><br />
+    <%= f.text_field :content, class: 'content' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :visited_date ,"訪問日（選択肢に年、日をつける）"%><br />
+    <%= f.date_select :visited_date%>
+  </div>
+
+  <div class="field">
+    <%= f.label "写真"%><br />
+  </div>
+
+  <%= f.submit "投稿" %>
+<% end %>

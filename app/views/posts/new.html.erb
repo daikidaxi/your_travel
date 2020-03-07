@@ -1,29 +1,5 @@
 
 
 <p>訪れた国を入力してください</p>
-
-<%= form_for @post do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.label :country ,"国名 (同じ国の時のエラーメッセージの表示を作る)"%><br />
-    <%= f.select :country, allcontries, class: '国名' %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :content ,"感想"%><br />
-    <%= f.text_field :content, class: 'content' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :visited_date ,"訪問日（年、日をつける）"%><br />
-    <%= f.date_select :visited_date%>
-  </div>
-
-  <div class="field">
-    <%= f.label "写真"%><br />
-  </div>
-
-  <%= f.submit "投稿" %>
-<% end %>
-
+<%= render "post_form" %>
 <p>ダメだったときのredirectを記述</p>
