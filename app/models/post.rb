@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   require 'date'
   belongs_to :user
+  has_many :likes
   default_scope -> { order(visited_date: :desc) }
   #同じ日の場合はcreated_atが遅い順にしたい
   validates :user_id, presence: true
@@ -20,5 +21,9 @@ class Post < ApplicationRecord
     end
   end
 
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
+  
 end
 
