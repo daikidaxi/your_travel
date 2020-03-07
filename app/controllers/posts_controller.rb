@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit,:create,:update]
+
   def new
     @post = current_user.posts.build #if user_signed_in?
   end
 
   def edit
-    
-  end
 
+  end
 
   def index
   end
@@ -17,8 +17,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_url, notice:"投稿しました。"
     else
-      flash={danger: "〜〜失敗"}
-      render'new'
+      render'posts/new'
     end
   end
 
@@ -35,5 +34,4 @@ class PostsController < ApplicationController
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
     end
-
 end

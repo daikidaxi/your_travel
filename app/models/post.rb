@@ -4,11 +4,21 @@ class Post < ApplicationRecord
   default_scope -> { order(visited_date: :desc) }
   #同じ日の場合はcreated_atが遅い順にしたい
   validates :user_id, presence: true
-  validates :country, uniqueness: true
-  validates :content, presence: true, length: { maximum: 300 }
-  #validate :before_today
+  validates :country, uniqueness: { scope: :user_id }
+  validate :date_in_the_past
+  validate :not_nationality?
 
-  def before_today
-    errors.add(Date.current"以前の日付を入力してください。") unless self.visited_date > Date.current
+  def date_in_the_past
+    if visited_date > Date.today
+      errors.add(:visited_date, "過去の日付を選択してください")
+    end
   end
+
+  def not_nationality?
+    if user.nationality == country
+      errors.add(:country,"国籍は選択できません")
+    end
+  end
+
 end
+
