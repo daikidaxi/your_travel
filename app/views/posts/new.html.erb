@@ -1,10 +1,12 @@
 
+
 <p>訪れた国を入力してください</p>
 
-<%= form_for(@post) do |f| %>
+<%= form_for @post do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :country ,"国名 (同じ国の時のエラーメッセージの表示を作る)"%><br />
-    <%= f.select :country, allcontries, class: 'country' %>
+    <%= f.select :country, allcontries, class: '国名' %>
   </div>
   
   <div class="field">
