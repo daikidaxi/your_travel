@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    @post = Post.find_by(id: params[:id])
   end
 
   def index
@@ -22,7 +22,15 @@ class PostsController < ApplicationController
   end
 
   def update
-
+    @post=Post.find_by(id: params[:id])
+    @user=User.find_by(id: @post.user_id)
+    if @post.update(post_params)
+      redirect_to root_url, notice: "情報を更新しました" 
+      # redirect_back(fallback_location: root_url)
+      #redirect_to @post#users_show_path, controller: :users, action: :show
+    else
+      render 'edit'
+    end
   end
 
   private
