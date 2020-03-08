@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'relationships/create'
+  get 'relationships/destroy'
   get 'posts/new'
   get 'posts/edit'
   get 'posts/index'
@@ -14,7 +16,11 @@ Rails.application.routes.draw do
     post 'login', to: 'devise/sessions#create'
     delete 'signout', to: 'devise/sessions#destroy'
   end
-  resources :users
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member
+  end
   resources :posts do
     resource :likes, only: [:create, :destroy]
   end
