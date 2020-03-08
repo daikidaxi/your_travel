@@ -19,6 +19,17 @@ class UsersController < ApplicationController
   #     File.binwrite("public/user_images/#{@user.image_name}",image.read)
   #   end
   # end
+
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings
+  end
+
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers
+  end
+  
   private
   def user_params
     params.require(:user).permit(:name, :email,:password, :password_confirmation, :image, :remember_digest)
