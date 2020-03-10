@@ -35,6 +35,13 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 #--------------------------------------------
+# jquery
+gem 'jquery-rails'
+
+
+# 環境変数
+gem 'dotenv-rails'
+
 # kaminari  pagenate
 gem 'kaminari'
 # SNS認証  and  ログインボタン

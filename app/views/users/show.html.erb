@@ -7,6 +7,8 @@
         ユーザー名:<%= @user.name %><br/>
         出身地:<%= @user.nationality %><br/>
         訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
+
+        <%= link_to 'テスト',posts_index_path	%>
         <% if current_user.id==@user.id %>
           <%= link_to "編集",edit_user_registration_path(params[:id])%>
         <% end %>

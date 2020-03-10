@@ -7,7 +7,7 @@
   </head>
   <body>
   <div id="maps"></div>
-  <%= render 'hide/googlemapkey'%>
+  <script src="//maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap&language=ja&libraries=places" async></script>
   <script>
     function initMap() {
       
