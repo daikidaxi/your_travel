@@ -38,7 +38,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # jquery
 gem 'jquery-rails'
 
-
 # 環境変数
 gem 'dotenv-rails'
 
