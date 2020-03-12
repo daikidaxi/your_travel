@@ -12,6 +12,10 @@ class PostsController < ApplicationController
   def index
   end
 
+  def show
+    @post=Post.find_by(id: params[:id])
+  end
+
   def create
     @post=current_user.posts.build(post_params)
     if @post.save

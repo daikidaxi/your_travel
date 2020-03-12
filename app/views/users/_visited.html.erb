@@ -1,17 +1,14 @@
 <li>
-  <span class="country"><%= link_to post.country, edit_post_path(post.id) %> (国毎と編集のリンクを別に) </span>
+  <span class="country"><%= link_to post.country,post_path(post.id) %> (国毎と編集のリンクを別に) </span>
   <span class="images"></span>
   <% if @path.is('top_page#home')%>
     <span class="visited_date"><%= post.visited_date.strftime('%Y年%m月%d日')  %> に訪問 </span>
   <% else%>
     <span class="visited_date"><%= post.visited_date.strftime('%Y年%m月')  %> に訪問 </span>
   <% end%>
-  <% if post.liked_by?(current_user)%>
-      <p><%=link_to "いいね解除", post_likes_path(post.id), method: :delete %></p>
-  <% else %>
-      <p><%=link_to "いいね登録", post_likes_path(post.id), method: :post %></p>
-  <% end %>
-  <p><span>いいね数: </span><%= post.likes.count %></p>
+  <div id="likes_buttons_<%= post.id %>">
+    <%= render "likes/like",post: post%>
+  </div>
   <hr>
 </li>
 
