@@ -2,9 +2,8 @@
     <p>直近で旅行した人を表示する <%= 10 %> 件の表示</p>
         <% @posts.each do |post|%>
             <ul>
-                <%= image_tag "#{post.user.image}",size: "50x50" %>
-                <%= link_to post.user.name, post.user %>
-                <%= render "users/visited" , post: post %>
+                <%= render "users/user", post: post %>
+                <%= render "users/visited", post: post %>
             </ul>
         <% end %>
     <%= link_to "投稿する",new_post_path %>

@@ -35,6 +35,8 @@
 yarn-debug.log*
 .yarn-integrity
 
-
 # 環境変数
 /.env
+
+# 国データ
+/public/countriesdata
