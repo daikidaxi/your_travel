@@ -7,15 +7,16 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     attributes:
+      parent:
+        base: ''
       user:
         name: ユーザー名
         email: メールアドレス
+        nationality: 国籍
         password: パスワード
         password_confirmation: パスワード（再入力）
         image: プロフィール画像
         remember_me: 次回からパスワード入力を省く
-      parent:
-        base: ''
       post:
         country: この国
         content: 感想
