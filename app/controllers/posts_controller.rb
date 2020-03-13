@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    # @post = Post.find_by(id: 5)
   end
 
   def show

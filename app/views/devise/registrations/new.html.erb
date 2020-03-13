@@ -1,4 +1,4 @@
-<h2>新規登録（sign up）</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -35,30 +35,11 @@
     <%= f.label :image, "プロフィール画像" %><br />
     <%= f.file_field :image %>
   </div><br/><br/>
-  <input type="file" onchange="previewFile()"><br> <!-- jsのpreviewFile()を呼ぶ -->
-  <img src="" height="200" alt="Image preview..."> <!-- プレビューの表示枠を用意 -->
 
   <div class="actions">
     <%= f.submit "新規登録" %><br />
   </div>
 <% end %>
-
-<script>
-  function previewFile() {
-    var preview = document.querySelector('img');//どこでプレビューするか指定。'img[name="preview"]'などにすればimg複数あっても指定できます。
-    var file    = document.querySelector('input[type=file]').files[0];//'input[type=file]'で投稿されたファイル要素の0番目を参照します。input[type=file]にmutipleがなくてもこのコードになります。
-    var reader  = new FileReader();
-
-    reader.addEventListener("load", function () {
-      preview.src = reader.result;//めちゃめちゃ長い文字列が引き渡されます。ユーザーのファイルパスに紐付かない画像情報だと思います。
-    }, false);
-
-    if (file) {
-      reader.readAsDataURL(file);//ここでreaderのメソッドに引数としてfileを入れます。ここで、readerのaddEventListenerが発火します。
-    }
-  }
-</script>
-
 
 
 <%= render "devise/shared/links" %>
