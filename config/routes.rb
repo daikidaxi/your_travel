@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'relationships/create'
-  get 'relationships/destroy'
   get 'posts/new'
   get 'posts/edit'
   get 'posts/index'
@@ -10,7 +7,7 @@ Rails.application.routes.draw do
   
   root 'top_page#home'
 
-  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
+  devise_for :users, controllers: { registrations: 'users/registrations',:omniauth_callbacks => "omniauth_callbacks" }
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     post 'login', to: 'devise/sessions#create'

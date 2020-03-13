@@ -1,13 +1,15 @@
-
 <h3>フォロー</h3>
-
-<% @users.each do |user| %>
-  <div>
-    <hr>
-    <%= image_tag "#{user.image}",size: "50x50" %>
-    <%= link_to user.name, user_path(user.id) %>
-      <div id="follow-<%=user.id%>">
-        <%= render "users/follow",user: user%>
-      </div>
-  </div>
-<% end %>
+<%if @users.count==0%>
+  <p>まだフォローしている人はいません</p>
+<%else%>
+  <% @users.each do |user| %>
+    <div>
+      <hr>
+      <%= image_tag "#{user.image}",size: "50x50" %>
+      <%= link_to user.name, user_path(user.id) %>
+        <div id="follow-<%=user.id%>">
+          <%= render "users/follow",user: user%>
+        </div>
+    </div>
+  <% end %>
+<%end%>
