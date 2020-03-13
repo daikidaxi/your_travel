@@ -1,6 +1,7 @@
+<% provide(:title, "#{@user.name}がフォローしているユーザー") %>
 <h3>フォロー</h3>
 <%if @users.count==0%>
-  <p>まだフォローしている人はいません</p>
+  <p>まだフォローしているユーザーはいません</p>
 <%else%>
   <% @users.each do |user| %>
     <div>

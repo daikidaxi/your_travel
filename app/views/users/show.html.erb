@@ -8,15 +8,12 @@
         出身地:<%= @user.nationality %><br/>
         訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
 
-        <%= link_to 'テスト',posts_index_path	%>
-        <% if current_user.id==@user.id %>
-          <%= link_to "編集",edit_user_registration_path(params[:id])%>
+          <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+        <% if logged_in?%>
+          <div id ="follow-<%= @user.id %>">
+            <%= render "follow" ,user: @user%>
+          </div>
         <% end %>
-
-        <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
-        <div id ="follow-<%= @user.id %>"></div>
-        <%= render "follow" ,user: @user%>
-
       </div>
     </section>
   </aside>

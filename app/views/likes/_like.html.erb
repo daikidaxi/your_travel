@@ -3,4 +3,4 @@
 <% else %>
   <%=link_to image_tag("liked_non.png",width: '16'), post_likes_path(post.id), method: :post, remote: true,post: post %>
 <% end %>
-<%= post.likes.count %>
+<%= post.likes.count %> 件のいいね

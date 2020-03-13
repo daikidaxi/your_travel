@@ -6,10 +6,16 @@
   <% else%>
     <span class="visited_date"><%= post.visited_date.strftime('%Y年%m月')  %> に訪問 </span>
   <% end%>
-  <div id="likes_<%= post.id %>">
-    <%= render "likes/like",post: post%>
-  </div>
-  <hr>
+  <% if logged_in?%>
+    <div id="likes_<%= post.id %>">
+      <%= render "likes/like",post: post%>
+    </div>
+    <hr>
+  <% else %>
+    <div>
+      <%= image_tag 'liked.png',width: '16' %><%= post.likes.count %> 件のいいね
+    </div>
+  <% end %>
 </li>
 
 
