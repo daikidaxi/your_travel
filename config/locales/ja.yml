@@ -16,6 +16,9 @@ ja:
         remember_me: 次回からパスワード入力を省く
       parent:
         base: ''
+      post:
+        country: この国
+        content: 感想
   date:
     abbr_day_names:
     - 日

@@ -1,11 +1,6 @@
+<% provide(:title, "トップページ") %>
+
 <% if logged_in?%>
-    <p>直近で旅行した人を表示する <%= 10 %> 件の表示</p>
-        <% @posts.each do |post|%>
-            <ul>
-                <%= render "users/user", post: post %>
-                <%= render "users/visited", post: post %>
-            </ul>
-        <% end %>
     <%= link_to "投稿する",new_post_path %>
 <% else %>
     <div class="center jumbotron">
@@ -16,3 +11,10 @@
         <p><%= link_to("新規登録",new_user_registration_path) %></p>
     </div>
 <% end %>
+<p>直近で旅行した人を表示する <%= 10 %> 件の表示</p>
+    <% @posts.each do |post|%>
+        <ul>
+            <%= render "users/user", post: post %>
+            <%= render "users/visited", post: post %>
+        </ul>
+    <% end %>

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def index
     @users=User.all
   end
@@ -28,13 +28,13 @@ class UsersController < ApplicationController
   # end
 
   def follows
-    user = User.find(params[:id])
-    @users = user.followings
+    @user = User.find(params[:id])
+    @users = @user.followings
   end
 
   def followers
-    user = User.find(params[:id])
-    @users = user.followers
+    @user = User.find(params[:id])
+    @users = @user.followers
   end
   
   private
