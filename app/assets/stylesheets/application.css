@@ -14,10 +14,48 @@
  *= require_self
  */
 
-ul {
-  list-style: none;
+
+
+ /* header */
+ body{
+   padding-top:50px;
+ }
+ #header{
+  position:fixed;
+  top:0;
+  margin:0;
+  padding:4px;
+  width:100%;
+  background-color:#ccc;
+  z-index:9999;
+  height:50px; 
 }
 
+.header_left{
+  margin:0px;
+  font-size: 25px;
+  padding: 10px;
+  float: left;
+}
+
+.header_right{
+  padding: 10px;
+  float:right;
+}
+.header_right li{
+  padding: 10px;
+  float: left;
+}
+
+
+
+
+/* 黒点なし */
+ul {
+  margin:0px;
+  list-style: none;
+}
+/* 画像プレビュー用？ */
 #img_field {
   font-size: 15px;
   margin-top: 10px;
@@ -65,3 +103,6 @@ ul {
   display: block;
   color: #fff;
 }
+
+
+
