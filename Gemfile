@@ -58,6 +58,7 @@ gem 'cancancan'
 
 # bootstrap
 gem 'webpacker', '~> 3.5'
+gem 'bootstrap'
 
 # 画像アップロード, リサイズ
 gem 'carrierwave'

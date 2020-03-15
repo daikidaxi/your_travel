@@ -2,11 +2,11 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :country ,"国名"%><br />
-    <%= f.select :country, allcontries, class: '国名' %>
+    <%= f.select :country, allcontries, class: 'country_select' %>
   </div>
   
   <div class="field">
-    <%= f.label :content ,"感想"%><br />
+    <%= f.label :content %><br />
     <%= f.text_field :content, class: 'content' %>
   </div>
 
