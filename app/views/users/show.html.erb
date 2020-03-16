@@ -1,44 +1,46 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <div class="user_?">
-        <%= image_tag "#{@user.image}",size: "100x100", class:"icon_image" %><br/>
-        ユーザー名:<%= @user.name %><br/>
-        出身地:<%= @user.nationality %><br/>
-        訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
-
-          <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
-        <% if logged_in?%>
-          <div id ="follow-<%= @user.id %>">
-            <%= render "follow" ,user: @user%>
-          </div>
+<div class="container">
+  <div class="row user-total">
+    <div class="col-sm-6 user-avatar">
+      <%= image_tag "#{@user.image}", class:"icon_image" %><br/>
+    </div>
+    <div class="col-sm-6 user-info">
+      ユーザー名:<%= @user.name %><br/>
+      出身地:<%= @user.nationality %><br/>
+      訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
+        <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+      <% if logged_in?%>
+        <div id ="follow-<%= @user.id %>">
+          <%= render "follow" ,user: @user%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <section class="map_went_all">
+      <%= render "shared/map" %>
+    </section>
+  </div>
+  <div class="row">
+    <section class="last_visited">
+    </section>
+  </div>
+  <div class="row">
+    <section class="user_posts">
+      <div class="col-md-8">
+        <% if @user.posts.any? %>  
+          <p>訪れた国</p>
+          <% @posts.each do |post|%>
+            <ul>
+              <%= render "visited" , post: post %>
+            </ul>
+          <% end %>
+        <% else %>
+          <h2>あなたが訪れた国を投稿してください</h2>
+          <%= link_to "投稿する",new_post_path %>
         <% end %>
       </div>
     </section>
-  </aside>
-    <section class="user_content">
-      <section class="map_went_all">
-        <%= render "shared/map" %>
-      </section>
-      <section class="last_visited">
-      </section>
-      <section class="user_posts">
-        <div class="col-md-8">
-          <% if @user.posts.any? %>  
-            <p>訪れた国</p>
-            <% @posts.each do |post|%>
-              <ul>
-                <%= render "visited" , post: post %>
-              </ul>
-            <% end %>
-
-          <% else %>
-            <h2>あなたが訪れた国を投稿してください</h2>
-            <%= link_to "投稿する",new_post_path %>
-          <% end %>
-        </div>
-      </section>
-      <p>＊＊＊🍀いろんな機能の追加🍀＊＊＊</p>
-    </section>
+  </div>
+  <p>＊＊＊🍀いろんな機能の追加🍀＊＊＊</p>
 </div>

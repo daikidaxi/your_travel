@@ -40,12 +40,19 @@
  /* header */
 
  #header{
-  top:0;
-  margin:0px;
-  width:100%;
-  background-color:rgb(199, 199, 214);
+  // top:0;
+  // margin:0px;
+  // width:100%;
+  // background-color:rgb(199, 199, 214);
   z-index:9999;
-  height:50px; 
+  height:60px; 
+
+  // z-index: 32;
+  padding: 6px;
+  font-size: 14px;
+  line-height: 1.0;
+  color: hsla(0,0%,100%,.7);
+  background-color: #24292e;
 }
 
 .header_left{
@@ -60,14 +67,35 @@
   float:right;
 }
 .header_right li{
-  padding: 10px;
+  padding: 6px;
   float: left;
+  display: table-cell;
+  vertical-align: middle;
 }
 
+.user_avatar{
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+
+
 /* 基本 */
+.notice{
+  margin:0;
+}
+.alert{
+  margin:0;
+  padding:0;
+}
 
 section {
-  overflow: auto;
+  // overflow: auto;
 }
 textarea {
   resize: vertical;

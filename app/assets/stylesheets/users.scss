@@ -1,6 +1,7 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .icon_image {
   width: 200px;
   height: 200px;
@@ -11,12 +12,14 @@
   //タテヨコ比を変えないままトリミング
 }
 
+.user-total{
+  margin: 20px;
+}
 .user_info {
-  float: left;
-  width: 25%;
+  align-items: center;
 }
 
-.user_content {
-  float: left;
-  width: 75%;
+.user_avatar {
+  // align-items: end; /* アイテムを末尾にまとめる */ 
+  align-items:flex-end;
 }
