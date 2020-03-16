@@ -36,16 +36,35 @@
 
         <div class="field">
           <%= f.label :image %><br />
+          <%= f.label :image,"ファイルの選択", class: "image_input_btn", :type => "file", :id => "file"%><br />
           <%= f.file_field :image %>
-        </div><br/><br/>
+          </label>
+        </div>
+        <div id="result"></div><br/>
 
         <div class="actions">
-          <%= f.submit "新規登録" %><br />
+          <%= f.submit "新規登録",:class => "btn btn-primary" %><br />
         </div>
       <% end %>
     </div>
-
-
     <%= render "devise/shared/links" %>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script>
+$(function(){
+    $('#file').change(function(){
+        $('img').remove();
+        var file = $(this).prop('files')[0];
+        if(!file.type.match('image.*')){
+            return;
+        }
+        var fileReader = new FileReader();
+        fileReader.onloadend = function() {
+            $('#result').html('<img src="' + fileReader.result + '" class="icon_image margin"/>');
+        }
+        fileReader.readAsDataURL(file);
+    });
+});
+</script>
