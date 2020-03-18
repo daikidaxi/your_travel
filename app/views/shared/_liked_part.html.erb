@@ -1,0 +1,9 @@
+<% if logged_in?%>
+  <div id="likes_<%= post.id %>">
+    <%= render "likes/like",post: post%>
+  </div>
+<% else %>
+  <div>
+    <%= image_tag 'liked.png',width: '16' %><%= post.likes.count %> 件のいいね
+  </div>
+<% end %>

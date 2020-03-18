@@ -1,21 +1,9 @@
 <li>
-  <span class="country"><%= link_to post.country,post_path(post.id) %> (国毎と編集のリンクを別に) </span>
-  <span class="images"></span>
-  <% if @path.is('top_page#home')%>
-    <span class="visited_date"><%= post.visited_date.strftime('%Y年%m月%d日')  %> に訪問 </span>
-  <% else%>
-    <span class="visited_date"><%= post.visited_date.strftime('%Y年%m月')  %> に訪問 </span>
-  <% end%>
-  <% if logged_in?%>
-    <div id="likes_<%= post.id %>">
-      <%= render "likes/like",post: post%>
-    </div>
-    <hr>
-  <% else %>
-    <div>
-      <%= image_tag 'liked.png',width: '16' %><%= post.likes.count %> 件のいいね
-    </div>
-  <% end %>
+  <span class="country"><%= link_to post.country,"#" %></span>
+  <span class="images"><%= link_to "写真",post_path(post.id) %></span>
+  <%= render "shared/date",post: post %>
+  <%= render "shared/liked_part",post: post %>
+  <hr>
 </li>
 
 

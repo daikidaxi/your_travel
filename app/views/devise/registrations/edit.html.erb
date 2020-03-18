@@ -1,47 +1,51 @@
-<% provide(:title, "ユーザー情報の編集") %>
-<h2>ユーザー情報を編集する</h2>
+<% provide(:title, "#{@user.name}") %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container" style="max-width: 700px;">
+  <h3 class="text-center">ユーザー情報の編集</h3>
+    <div class="row">
+      <div class = "mx-auto" style="width: 500px;">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class ="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, value: @user.name %>
-  </div>
+          <div class ="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, value: @user.name %>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, value: @user.email, autocomplete: "email" %>
-  </div>
-  <div >
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-        <em><%= @minimum_password_length %> 文字以上</em>
-      <% end %><br/>
-      <%= f.password_field :password, autocomplete: "new-password" %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, value: @user.email, autocomplete: "email" %>
+          </div>
+          <div >
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <small>(<%= @minimum_password_length %>文字以上)</small>
+              <% end %><br/>
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :current_password %> <small>(パスワードの変更には現在のパスワードを入力してください)</small><br />
+              <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </div>
+          </div>
+
+          <%= render "shared/profile_image",f: f %>
+
+
+          <div class="actions">
+            <%= f.submit "更新する" ,:class => "btn btn-primary" %>
+          </div>
+
+        <% end %>
+      </div>  
     </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div><br/>
-
-    <div class="field">
-      <%= f.label :current_password %> <i>(パスワードの変更には現在のパスワードを入力してください)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新する" %>
-  </div>
-
-<% end %>
-
-<p> <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "削除してよろしいですか？" }, method: :delete %></p>
+  <p class="text-center"> <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "削除してよろしいですか？" }, method: :delete %></p>
+</div>
