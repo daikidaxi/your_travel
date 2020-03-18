@@ -67,14 +67,14 @@
   vertical-align: middle;
 }
 
-.user_avatar{
+.header_user_avatar{
   width: 25px;
   height: 25px;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
 }
 
 
@@ -97,6 +97,11 @@ textarea {
   resize: vertical;
 }
 
+
+.img_circle{
+  border-radius: 100px;
+}
+
 /* 黒点なし */
 ul {
   margin:0px;
@@ -104,4 +109,44 @@ ul {
 }
 
 /* 入力フォーム */
-/* .form_new {;} */
+
+#img_field {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+
+}
+ 
+#img_field i {
+  font-size: 100px;
+  color: #aaa;
+  line-height: 250px;
+  transition: 0.3s ease-out;
+}
+ 
+#img_field i.add {
+  display: none;
+  font-size: 50px;
+  position: absolute;
+  top: -90px;
+  right: 15px;
+}
+ 
+#img_field:hover {
+  background-color: #EDBC6C;
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
+ 
+#img_field:hover i {
+  transition: 0.3s ease-out;
+  display: block;
+  color: #fff;
+}
+
+.user-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+}

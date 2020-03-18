@@ -1,8 +1,8 @@
 <% provide(:title, "新規登録") %>
 <div class = "container" style="max-width: 700px;">
-  <div class = "content">
-    <h2>新規登録</h2>
-    <div>
+    <h3 class= "text-center">新規登録</h3>
+  <div class = "row">
+    <div class = "mx-auto" style="width: 300px;">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -34,13 +34,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
-        <div class="field">
-          <%= f.label :image %><br />
-          <%= f.label :image,"ファイルの選択", class: "image_input_btn", :type => "file", :id => "file"%><br />
-          <%= f.file_field :image %>
-          </label>
-        </div>
-        <div id="result"></div><br/>
+        <%= render "shared/profile_image",f: f %>
 
         <div class="actions">
           <%= f.submit "新規登録",:class => "btn btn-primary" %><br />
@@ -50,21 +44,3 @@
     <%= render "devise/shared/links" %>
   </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script>
-$(function(){
-    $('#file').change(function(){
-        $('img').remove();
-        var file = $(this).prop('files')[0];
-        if(!file.type.match('image.*')){
-            return;
-        }
-        var fileReader = new FileReader();
-        fileReader.onloadend = function() {
-            $('#result').html('<img src="' + fileReader.result + '" class="icon_image margin"/>');
-        }
-        fileReader.readAsDataURL(file);
-    });
-});
-</script>

@@ -1,14 +1,20 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, "#{@user.name}") %>
 <div class="container">
+  <div class="row">
+    <%= link_to "ホーム",root_path %> -> <%= "#{@user.name}" %>
+  </div>
   <div class="row user-total">
-    <div class="col-sm-6 user-avatar">
+    <div class="col-sm-6 user-avatar ">
       <%= image_tag "#{@user.image}", class:"icon_image" %><br/>
     </div>
     <div class="col-sm-6 user-info">
       ユーザー名:<%= @user.name %><br/>
       出身地:<%= @user.nationality %><br/>
       訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
-        <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+      <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+      <% if current_user.id==@user.id %>
+        <%= link_to "ユーザー情報を編集する",edit_user_registration_path(params[:id])%>
+      <% end %>
       <% if logged_in?%>
         <div id ="follow-<%= @user.id %>">
           <%= render "follow" ,user: @user%>

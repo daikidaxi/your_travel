@@ -4,12 +4,12 @@
 
 
 .icon_image {
-  width: 200px;
-  height: 200px;
-  //サイズ指定
+  width: 150px;
+  height: 150px;
   border-radius: 100px;
-  //画像を丸くする
   object-fit: cover;
+  //サイズ指定
+  //画像を丸くする
   //タテヨコ比を変えないままトリミング
 }
 
@@ -17,12 +17,13 @@
   margin: 20px;
 }
 .user_info {
-  align-items: center;
+  // align-items: center;
 }
 
 .user_avatar {
   // align-items: end; /* アイテムを末尾にまとめる */ 
-  align-items:flex-end;
+  // align-items:flex-end;
+  margin:10;
 }
 
 .margin{
@@ -36,7 +37,7 @@
 
 
 input[type=file]{
-  display: none;
+  // display: none;
   width:100px;
   color:transparent;
 }
