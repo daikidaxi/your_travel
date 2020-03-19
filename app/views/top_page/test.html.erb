@@ -1,0 +1,79 @@
+<html lang="ja">
+  <div class="text-center">
+    <input type="text" value="<%= @post.country%>" size="20" id="place">
+    <button type="button" onclick="search()">検索</button><br />
+  </div>
+
+
+  <style>
+    #maps{ height: 600px;
+           width:  100%; }
+  </style>
+  <div class="container mx-auto" style="width: 800px;">
+    <div id="maps"></div>
+  </div>
+  <script src="//maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap&language=ja&libraries=places" async></script>
+  <script>
+    // function getLatLng(place) {
+    //   var geocoder= new google.maps.Geocoder();
+    // }
+    function search(){
+       var place = document.getElementById('place').value;
+       var geocoder = new google.maps.Geocoder();
+       var mapArea = document.getElementById('maps');
+
+       // ジオコーディング検索実行
+       geocoder.geocode({"address" : place}, function(results, status) {
+       if (status == google.maps.GeocoderStatus.OK) {
+             
+            var lat = results[0].geometry.location.lat();//緯度を取得
+            var lng = results[0].geometry.location.lng();//経度を取得
+            var mark = {
+                lat: lat, // 緯度
+                lng: lng // 経度
+            };
+            var marker = new google.maps.Marker({ // マーカーの追加
+              position: mark, // マーカーを立てる位置を指定
+              map: map // マーカーを立てる地図を指定
+            });
+
+       }
+
+       })
+    }
+      
+    
+    function initMap() {
+      var mapPosition = {lat: 35.6811673, lng: 139.7670516};
+      var mapArea = document.getElementById('maps');
+      var mapOptions = {
+        center: mapPosition,
+        zoom: 2,
+        mapTypeControl: false,
+        fullscreenControl: false,
+        streetViewControl: false,
+        zoomControl: true
+      }
+      var map = new google.maps.Map(mapArea, mapOptions);
+
+      var markerOptions = {
+        map: map,
+        position: mapPosition,
+        icon: 'https://maps.google.com/mapfiles/ms/micons/blue-dot.png',
+
+      };
+      var newmarker = {
+        map: map,
+        position: mapPosition,
+        icon: 'https://maps.google.com/mapfiles/ms/micons/red-dot.png',
+
+      };
+      var marker = new google.maps.Marker(markerOptions);
+      // var marker = new google.maps.Marker(newmarker);
+    }
+
+
+
+
+
+  </script>

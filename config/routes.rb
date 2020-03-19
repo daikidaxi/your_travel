@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'test',to: 'top_page#test'
+  
   get 'posts/new'
   get 'posts/edit'
   get 'users/index'
