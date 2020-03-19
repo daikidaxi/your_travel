@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   validates :content, length: { maximum: 400 }  
   validate :date_in_the_past
   validate :not_nationality?
+  geocoded_by :country
+  after_validation :geocode
 
   def date_in_the_past
     if visited_date > Date.today

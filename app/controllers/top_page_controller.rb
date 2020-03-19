@@ -6,9 +6,7 @@ class TopPageController < ApplicationController
   end
 
   def test
-    @post=Post.find_by(id: "6")
-    @pointlat=64.1265206
-    @pointlng=-21.8174392
-    @address="アイスランド"
+    @posts=Post.where('latitude IS NOT NULL')
+
   end
 end

@@ -64,6 +64,8 @@ gem 'bootstrap'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# 住所取得
+gem 'geocoder'
 
 
 group :development, :test do

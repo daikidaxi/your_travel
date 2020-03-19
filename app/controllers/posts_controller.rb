@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:country,:content,:visited_date)
+      params.require(:post).permit(:country, :content, :visited_date, :latitude, :longitude)
     end
 
     def correct_user
