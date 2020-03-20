@@ -16,7 +16,6 @@
           <p class="header_left col-md-3"><%= link_to "Your Travel",root_path%></p>
           <div class="header_right col-md-auto">
             <li><%= link_to 'テスト', "/test"%></li>
-            <li><%= link_to '全てのユーザー', users_path%></li>
             <% if user_signed_in? %>
               <li><%= image_tag "#{current_user.image}", class:"header_user_avatar"%> <%= link_to current_user.name, user_path(current_user) %></li>
               <li><%= link_to '行った国を追加', new_post_path%></li>

@@ -1,0 +1,33 @@
+<% provide(:title, "#{@name}") %>
+<div class="container">
+  <div>パンクず</div>
+
+  <div class="row">
+    <div><img src="https://flagpedia.net/data/flags/h120/<%=@code.downcase%>.webp"></div>
+    <div><%=@name%></div>
+  </div>
+<hr>
+
+  <div class="row">
+    wikiAPI<br/>
+    <%=@info%>
+  </div>
+<hr>
+  <div class="row">
+    map
+  </div>
+<hr>
+
+  <div class="row">
+    みんなの投稿
+    <% if @posts.length==0%>
+      まだ訪れた人はいません
+    <% else %>
+      <% @posts.each do |post| %>
+        <ul>
+          <%= render"users/visited",post: post %>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+</div>

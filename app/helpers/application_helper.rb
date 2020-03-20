@@ -12,6 +12,7 @@ module ApplicationHelper
     end
     return data
   end
+
   # 投稿時にデータベースに入力
   def insert_country_data(post,country)
     post.country_code=draw_country_data(country)[1]
@@ -19,13 +20,10 @@ module ApplicationHelper
     post.continent=draw_country_data(country)[3]
   end
 
+  # 訪問数の入力 (投稿した順ではなく日付順にすべき)
   def insert_counts(post)
-    otherposts=Post.where(user_id: 2)
-    # otherposts=Post.where(country: post.country).where(user_id: post.user_id).order(date: "DESC")
-    # return if otherposts.nil?
-    for i in 1..otherposts.length do
-      otherposts[i].counts=i+1
-    end
+    otherposts=Post.where(country: post.country).where(user_id: post.user_id)
+    post.counts=otherposts.length+1
   end
 
   def allcontries
