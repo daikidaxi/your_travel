@@ -62,9 +62,9 @@
 }
 .header_right li{
   padding: 6px;
-  float: left;
-  display: table-cell;
-  vertical-align: middle;
+  // float: left;
+  // display: table-cell;
+  // vertical-align: middle;
 }
 
 .header_user_avatar{
@@ -77,7 +77,14 @@
   -o-border-radius: 100px;
 }
 
-
+ul.inl_block{
+  margin: 0px;
+}
+ul.inl_block li{
+  display: inline-block;
+  vertical-align: middle;
+  // padding: 5px;
+}
 
 /* 基本 */
 .notice{
@@ -90,9 +97,6 @@
   padding:0;
 }
 
-section {
-  // overflow: auto;
-}
 textarea {
   resize: vertical;
 }
@@ -149,4 +153,15 @@ ul {
   height: 200px;
   border-radius: 100px;
   object-fit: cover;
+}
+
+// visitedの画像
+.photo{
+  width: 200px;
+  height: 170px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }

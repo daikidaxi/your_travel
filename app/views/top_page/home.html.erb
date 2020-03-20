@@ -1,17 +1,19 @@
 <% provide(:title, "トップページ") %>
 <div class="container">
+    <p>ユーザー一覧</p>
+    <p>国一覧</p>
     <% if logged_in?%>
         <%= link_to "投稿する",new_post_path %>
     <% else %>
         <div class="">
             <h1>あなたの旅を記録しよう</h1>
-                <p>~~map~~</p>
+            <p>~~map~~</p>
             
             <p><%= link_to("ログイン",new_user_session_path) %></p>
             <p><%= link_to("新規登録",new_user_registration_path) %></p>
         </div>
     <% end %>
-    <p>直近で旅行した人を表示する <%= 10 %> 件の表示</p>
+    <p>直近で訪れた <%= 10 %> 件（ページネイトで全てでもいい）</p>
         <% @posts.each do |post|%>
             <ul>
                 <%= render "users/user", post: post %>
