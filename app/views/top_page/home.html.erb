@@ -1,7 +1,7 @@
 <% provide(:title, "トップページ") %>
 <div class="container">
-    <p>ユーザー一覧</p>
-    <p>国一覧</p>
+    <p><%= link_to "ユーザー一覧",users_path%></p>
+    <p><%= link_to "国一覧","/countries"%></p>
     <% if logged_in?%>
         <%= link_to "投稿する",new_post_path %>
     <% else %>

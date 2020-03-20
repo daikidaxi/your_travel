@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'test',to: 'top_page#test'
+  get 'countries', to: 'top_page#countries'
+  get 'countries/country', to: 'top_page#country'
   
   get 'posts/new'
   get 'posts/edit'
