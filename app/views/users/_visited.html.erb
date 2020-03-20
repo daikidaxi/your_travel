@@ -1,6 +1,6 @@
 <li>
-  <span class="country"><%= link_to post.country,"#" %></span>
-  <span class="images"><%= link_to "写真",post_path(post.id) %></span>
+  <%= render "posts/post_photo",post: post%>
+  <span><%= link_to post.country,"#" %></span>
   <%= render "shared/date",post: post %>
   <%= render "shared/liked_part",post: post %>
   <hr>

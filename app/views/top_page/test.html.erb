@@ -1,4 +1,11 @@
 <html lang="ja">
+  <%@sql.each do |ttt| %>
+    <%= ttt.country %>
+  <% end %>
+
+
+
+  <img src="https://flagpedia.net/data/flags/w580/<%=@po.country_code.downcase%>.webp" class="user-image">
   <style>
     #maps{ height: 600px;
            width:  100%; }

@@ -15,6 +15,9 @@ class PostsController < ApplicationController
 
   def create
     @post=current_user.posts.build(post_params)
+    insert_country_data(@post,@post.country)
+    insert_counts(@post)
+    @post.counts=1
     if @post.save
       redirect_to root_url, notice:"投稿しました。"
     else
@@ -36,7 +39,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:country, :content, :visited_date, :latitude, :longitude)
+      params.require(:post).permit(:country, :content, :visited_date, :photo, :latitude, :longitude)
     end
 
     def correct_user
