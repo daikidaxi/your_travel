@@ -13,13 +13,14 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find_by(id: params[:id])
-    @posts=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC')
+    @latest_post=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').first
+    @posts=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').where.not(id: @latest_post.id)
   end
 
   # def update
   #   @user = User.find_by(id: params[:id])
   #   #画像データが送信された場合
-  #   if params[:image]
+  #   if params[:image1
   #     #データベースに保存するファイル名はユーザーのid.jpgとする
   #     @user.image_name = "#{@user.id}.jpg"
   #     image = params[:image]

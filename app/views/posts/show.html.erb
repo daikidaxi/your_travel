@@ -2,23 +2,20 @@
 <% breadcrumb :post,@post %>
 
 
-<div class="container" style="max-width: 700px;">
-
-  <div class="row">パンくず</div>
-  
-  <h3 class="text-center"></h3></h3>
-
+<div class="container" style="max-width: 700px;">  
   <div class="row">
     <div class = "mx-auto" style="width: 500px;">
       <%= render "shared/user",user: @post.user %>
     </div>
   </div>
 
-  <div><%= link_to "編集",edit_post_path(params[:id]) %></div>
+  <% if @post.user==current_user%>
+    <div><%= link_to "編集",edit_post_path(params[:id]) %></div>
+  <% end %>
 
   <div class="row">
     <div class = "mx-auto" style="width: 500px;">
-    
+    国旗にする
       <%= image_tag"#{@post.photo}", class: "photo-show"%>
     </div>
   </div>
@@ -48,7 +45,7 @@
 
   <div class="row">
     <div class = "mx-auto" style="width: 500px;">
-      マップ
+      <%= render "shared/map_kai",post: @post %>
     </div>
  </div>
   

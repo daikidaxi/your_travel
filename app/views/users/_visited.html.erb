@@ -1,6 +1,6 @@
 <li>
   <%= render "posts/post_photo",post: post%>
-  <span><%= link_to post.country,"/countries/country?name=#{post.country}" %></span>
+  <span><%= link_to post.country,post_path(post) %></span>
   <%= render "shared/date",post: post %>
   <%= render "shared/liked_part",post: post %>
   <hr>

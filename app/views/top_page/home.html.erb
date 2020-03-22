@@ -4,20 +4,18 @@
 <div class="container">
     <p><%= link_to "ユーザー一覧",users_path%></p>
     <p><%= link_to "国一覧","/countries"%></p>
-    <% if logged_in?%>
-        <%= link_to "投稿する",new_post_path %>
-    <% else %>
+    <% if not logged_in?%>
         <div class="">
             <h1>あなたの旅を記録しよう</h1>
-            <p>~~map~~</p>
-            
             <p><%= link_to("ログイン",new_user_session_path) %></p>
             <p><%= link_to("新規登録",new_user_registration_path) %></p>
         </div>
     <% end %>
-    <p>直近で訪れた <%= 10 %> 件（ページネイトで全てでもいい）</p>
+    <%= render "shared/map_kai",{posts: @posts} %>
+    <p>最新の訪問</p>
         <% @posts.each do |post|%>
             <ul>
+
                 <%= render "users/user", post: post %>
                 <%= render "users/visited", post: post %>
             </ul>

@@ -1,11 +1,4 @@
 <html lang="ja">
-  <%@sql.each do |ttt| %>
-    <%= ttt.country %>
-  <% end %>
-
-
-
-  <img src="https://flagpedia.net/data/flags/w580/<%=@po.country_code.downcase%>.webp" class="user-image">
   <style>
     #maps{ height: 600px;
            width:  100%; }
@@ -16,10 +9,14 @@
   <script src="//maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap&language=ja&libraries=places" async></script>
   <script>
     function initMap() {
-      var mapPosition = {lat: 35.6811673, lng: 139.7670516};
+      <% if @latest_post.present?%>
+        var mapCenter = {lat: <%=@latest_post.latitude%>,lng: <%=@latest_post.longitude%>};
+      <% elsif %>
+        var mapCenter = {lat: <%=@posts.first.latitude%>,lng: <%=@posts.first.longitude%>};
+      <% end %>
       var mapArea = document.getElementById('maps');
       var mapOptions = {
-        center: mapPosition,
+        center: mapCenter,
         zoom: 2,
         mapTypeControl: false,
         fullscreenControl: false,
@@ -27,25 +24,24 @@
         zoomControl: true
       }
       var map = new google.maps.Map(mapArea, mapOptions);
+      <% if @posts.any?%>
+        <% @posts.each do |post|%>
+          var newPosition ={lat: <%=post.latitude%>,lng: <%=post.longitude%>}
+          var markerOthers = {
+            map: map,
+            position: newPosition,
+            icon: 'https://maps.google.com/mapfiles/ms/micons/red-dot.png',
+          };
+          var marker = new google.maps.Marker(markerOthers);
+        <% end %>
+      <% end %>
 
       var markerOptions = {
         map: map,
-        position: mapPosition,
+        position: mapCenter,
         icon: 'https://maps.google.com/mapfiles/ms/micons/blue-dot.png',
-
       };
-      var marker = new google.maps.Marker(markerOptions);
+      var latest_marker = new google.maps.Marker(markerOptions);
 
-      <% @posts.each do |post|%>
-        var newPosition ={lat: <%=post.latitude%>,lng: <%=post.longitude%>}
-        var newmarker = {
-          map: map,
-          position: newPosition,
-          icon: 'https://maps.google.com/mapfiles/ms/micons/red-dot.png',
-
-        };
-        var marker = new google.maps.Marker(newmarker);
-      <% end %>
-      console.log(data[0]);
       }
   </script>
