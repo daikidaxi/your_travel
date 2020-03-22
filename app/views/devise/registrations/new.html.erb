@@ -1,4 +1,6 @@
 <% provide(:title, "新規登録") %>
+<% breadcrumb :new_user %>
+
 <div class = "container" style="max-width: 700px;">
     <h3 class= "text-center">新規登録</h3>
   <div class = "row">
@@ -13,7 +15,7 @@
 
         <div class="field">
           <%= f.label :nationality %><br />
-          <%= f.select :nationality, allcontries, class: 'country' %>
+          <%= f.select :nationality, allcontries ,:selected=>"日本", class: 'country' %>
         </div>
 
         <div class="field">
@@ -34,7 +36,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
-        <%= render "shared/profile_image",f: f %>
+        <%= render "profile_image",f: f %>
 
         <div class="actions">
           <%= f.submit "新規登録",:class => "btn btn-primary" %><br />

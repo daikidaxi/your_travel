@@ -1,4 +1,35 @@
 <div class="field">
   <%= f.label :photo %>
-  <%= f.file_field :photo %>
+    <div id="img_field" onClick="$('#file').click()" >
+      <% if @post.photo.url.present? && @post.photo.url!="default.jpg" %>
+        <%= image_tag(@post.photo.url,class: "post-photo") %>
+      <% else %>
+        <i class="fas fa-image"></i>入力<i class="fas fa-file-upload add"></i>
+      <% end %>
+    </div>
+  <%= f.file_field :photo, style: "display:none;", id: "file" %>
 </div>
+
+<script>
+$(function(){
+  $fileField = $('#file')
+  $($fileField).on('change', $fileField, function(e) {
+    file = e.target.files[0]
+    reader = new FileReader(),
+    $preview = $("#img_field");
+ 
+    reader.onload = (function(file) {
+      return function(e) {
+        $preview.empty();
+        $preview.append($('<img>').attr({
+          src: e.target.result,
+          width: "100%",
+          class: "preview post-photo margin",
+          title: file.name
+        }));
+      };
+    })(file);
+    reader.readAsDataURL(file);
+  });
+});
+</script>

@@ -1,4 +1,6 @@
 <% provide(:title, "トップページ") %>
+<% breadcrumb :home %>
+
 <div class="container">
     <p><%= link_to "ユーザー一覧",users_path%></p>
     <p><%= link_to "国一覧","/countries"%></p>

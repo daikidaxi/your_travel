@@ -1,4 +1,6 @@
 <% provide(:title, "#{@user.name}がフォローしているユーザー") %>
+<% breadcrumb :follows,@user %>
+
 <div class="container" style="max-width: 700px;">
   <h3 class="text-center">フォロー</h3>
   <div class="row">

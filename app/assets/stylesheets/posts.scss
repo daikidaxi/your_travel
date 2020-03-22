@@ -1,3 +1,17 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.post-photo{
+  width:250px;
+  height: 200px;
+}
+
+.label {
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+}

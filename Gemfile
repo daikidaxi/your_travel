@@ -60,6 +60,9 @@ gem 'cancancan'
 gem 'webpacker', '~> 3.5'
 gem 'bootstrap'
 
+# アイコン用
+gem 'font-awesome-sass', '~> 5.4.1'
+
 # 画像アップロード, リサイズ
 gem 'carrierwave'
 gem 'mini_magick'
@@ -69,6 +72,9 @@ gem 'geocoder'
 
 # Wikipedia
 gem 'wikipedia-client'
+
+# パンくずリスト
+gem 'gretel'
 
 
 group :development, :test do
