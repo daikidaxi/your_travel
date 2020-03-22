@@ -1,5 +1,4 @@
-<% if post.photo=="default.jpg"%>
-    どうか？
+<% if post.photo.url == "default.jpg"%>
   <img src="https://flagpedia.net/data/flags/w580/<%=post.country_code.downcase%>.webp" class="photo">
 <% else %>
   <%= link_to (image_tag"#{post.photo}", class: "photo"), post_path(post.id) %>

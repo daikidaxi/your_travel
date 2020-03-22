@@ -43,7 +43,10 @@
 ガボン,GA,Gabon,AF
 カメルーン,CM,Cameroon,AF
 ガンビア,GM,Gambia,AF
+韓国,KR,South Korea,AS
 カンボジア,KH,Cambodia,AS
+北マケドニア,MK,North Macedonia,EU
+北朝鮮,KP,North Korea,AS
 ギニア,GN,Guinea,AF
 ギニアビサウ,GW,Guinea-Bissau,AF
 キプロス,CY,Cyprus,EU
@@ -85,6 +88,7 @@
 スロバキア,SK,Slovakia,EU
 スロベニア,SI,Slovenia,EU
 セーシェル,SC,Seychelles,AF
+赤道ギニア,GQ,Equatorial Guinea,AF
 セネガル,SN,Senegal,AF
 セルビア,RS,Serbia,EU
 セントキッツ,KN,St. Kitts and Nevis,NA
@@ -93,10 +97,13 @@
 ソマリア,SO,Somalia,AF
 ソロモン諸島,SB,Solomon Islands,OC
 タイ,TH,Thailand,AS
+台湾,TW,Taiwan,AS
 タジキスタン,TJ,Tajikistan,AS
 タンザニア,TZ,Tanzania,AF
 チェコ,CZ,Czech Republic,EU
 チャド,TD,Chad,AF
+中央アフリカ,CF,Central African,AF
+中国,CN,China,AS
 チュニジア,TN,Tunisia,AF
 チリ,CL,Chile,SA
 ツバル,TV,Tuvalu,OC
@@ -115,6 +122,7 @@
 ニウエ,NU,Niue,OC
 ニカラグア,NI,Nicaragua,NA
 ニジェール,NE,Niger,AF
+日本,JP,Japan,AS
 ニュージーランド,NZ,New Zealand,OC
 ネパール,NP,Nepal,AS
 ノルウェー,NO,Norway,EU
@@ -131,6 +139,7 @@
 バルバドス,BB,Barbados,NA
 ハンガリー,HU,Hungary,EU
 バングラデシュ,BD,Bangladesh,AS
+東ティモール,TL,East Timor,OC
 ブータン,BT,Bhutan,AS
 フィジー,FJ,Fiji,OC
 フィリピン,PH,Philippines,AS
@@ -153,6 +162,7 @@
 ボツワナ,BW,Botswana,AF
 ボリビア,BO,Bolivia,SA
 ポルトガル,PT,Portugal,EU
+香港,HK,HongKong,AS
 ホンジュラス,HN,Honduras,NA
 マーシャル諸島,MH,Marshall Islands,OC
 マダガスカル,MG,Madagascar,AF
@@ -161,6 +171,8 @@
 マルタ,MT,Malta,EU
 マレーシア,MY,Malaysia,AS
 ミクロネシア,FM,Micronesia,OC
+南アフリカ,ZA,South Africa,AF
+南スーダン,SS,South Sudan,AF
 ミャンマー,MM,Myanmar,AS
 メキシコ,MX,Mexico,NA
 モーリシャス,MU,Mauritius,AF
@@ -185,15 +197,3 @@
 レソト,LS,Lesotho,AF
 レバノン,LB,Lebanon,AS
 ロシア,RU,Russia,EU
-中国,CN,China,AS
-中央アフリカ,CF,Central African,AF
-北マケドニア,MK,North Macedonia,EU
-北朝鮮,KP,North Korea,AS
-南アフリカ,ZA,South Africa,AF
-南スーダン,SS,South Sudan,AF
-香港,HK,HongKong,AS
-台湾,TW,Taiwan,AS
-日本,JP,Japan,AS
-東ティモール,TL,East Timor,OC
-赤道ギニア,GQ,Equatorial Guinea,AF
-韓国,KR,South Korea,AS

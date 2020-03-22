@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'countries', to: 'top_page#countries'
   get 'countries/country', to: 'top_page#country'
   
-  get 'posts/new'
-  get 'posts/edit'
+  # get 'posts/new'
+  # get 'posts/edit'
   get 'users/index'
   get 'users/show'
   

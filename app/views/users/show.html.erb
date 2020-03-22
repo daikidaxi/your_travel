@@ -1,8 +1,7 @@
 <% provide(:title, "#{@user.name}") %>
+<% breadcrumb :user,@user %>
+
 <div class="container">
-  <div class="row">
-    <%= link_to "ホーム",root_path %> -> <%= "#{@user.name}" %>
-  </div>
   <div class="row user-total">
     <div class="col-sm-6 user-avatar ">
       <%= image_tag "#{@user.image}", class:"icon_image" %><br/>

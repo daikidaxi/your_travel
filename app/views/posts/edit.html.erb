@@ -1,4 +1,7 @@
 <% provide(:title, "編集") %>
+<% breadcrumb :edit_post,@post %>
 
-
-<%= render "post_form" %>
+<%= render "post_form",post: @post %>
+<% if current_user==@post.user_id%>
+  削除しますか
+<% end %>

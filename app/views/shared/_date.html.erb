@@ -1,5 +1,7 @@
+訪問:
 <% if @path.is('users#show') %>
   <%= post.visited_date.strftime('%Y年%m月') %>
 <% else %>
   <%= post.visited_date.strftime('%Y年%m月%d日') %>
 <% end %>
+(<%= post.counts%>回目)
