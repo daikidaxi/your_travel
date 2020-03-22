@@ -29,7 +29,8 @@ class TopPageController < ApplicationController
   end
 
   def test
-    @posts=Post.where('latitude IS NOT NULL')
+    @latest_post=Post.find_by(id: 27)
+    @posts=Post.limit(10).order('visited_date DESC, created_at DESC')
     nationality="アンドラ"
     @kakunou=draw_country_data(nationality)
     @first=[]

@@ -1,5 +1,5 @@
 <% if post.photo.url == "default.jpg"%>
-  <img src="https://flagpedia.net/data/flags/w580/<%=post.country_code.downcase%>.webp" class="photo">
+  <%= link_to (image_tag "https://flagpedia.net/data/flags/w580/#{post.country_code.downcase}.webp", class: "photo"), post_path(post.id) %>
 <% else %>
-  <%= link_to (image_tag"#{post.photo}", class: "photo"), post_path(post.id) %>
+  <%= link_to (image_tag "#{post.photo}", class: "photo"), post_path(post.id) %>
 <% end %>

@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :home do
-  link "ホーム後で修正"
+  link "後で修正"
 end
 
 crumb :login do
@@ -37,7 +37,7 @@ crumb :post do |post|
 end
 
 crumb :countries do
-  link "国一覧", "top_page/countries"
+  link "国一覧", countries_path
   parent :root
 end
 
@@ -47,7 +47,7 @@ crumb :country do |name|
 end
 
 crumb :new_post do |post|
-  link "訪れた国の追加"
+  link "訪れた国を追加"
   parent :user, post.user
 end
 crumb :edit_post do |post|

@@ -11,7 +11,7 @@
       出身地:<%= @user.nationality %><br/>
       訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
       <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
-      <% if current_user.id==@user.id %>
+      <% if logged_in? and current_user.id==@user.id %>
         <%= link_to "ユーザー情報を編集する",edit_user_registration_path(params[:id])%>
       <% end %>
       <% if logged_in?%>
@@ -21,19 +21,24 @@
       <% end %>
     </div>
   </div>
+
   <div class="row">
-    <section class="map_went_all">
-      <%= render "shared/map" %>
-    </section>
+    <%= render "shared/map_kai",{posts: @posts,latest_post: @latest_post} %>
   </div>
+
   <div class="row">
     <section class="last_visited">
+      <p>最後に訪れた国</p>
+      <ul>
+        <%= render "visited" , post: @latest_post %>
+      </ul>
     </section>
   </div>
+  
   <div class="row">
     <section class="user_posts">
       <div class="col-md-8">
-        <% if @user.posts.any? %>  
+        <% if @posts.any? or @latest_post.present? %>  
           <p>訪れた国</p>
           <% @posts.each do |post|%>
             <ul>

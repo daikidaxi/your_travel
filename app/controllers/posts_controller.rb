@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     insert_country_data(@post,@post.country)
     insert_counts(@post)
     if @post.save
-      redirect_to root_url, notice:"投稿しました。"
+      redirect_to post_path(@post), notice:"投稿しました。"
     else
       render'posts/new'
     end
@@ -28,9 +28,7 @@ class PostsController < ApplicationController
     @post=Post.find_by(id: params[:id])
     @user=User.find_by(id: @post.user_id)
     if @post.update(post_params)
-      redirect_to root_url, notice: "情報を更新しました" 
-      # redirect_back(fallback_location: root_url)
-      #redirect_to @post#users_show_path, controller: :users, action: :show
+      redirect_to post_path(@post), notice: "情報を更新しました" 
     else
       render 'edit'
     end
