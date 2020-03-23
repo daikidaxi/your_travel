@@ -2,37 +2,34 @@
 <% breadcrumb :user,@user %>
 
 <div class="container">
-  <div class="row user-total">
-    <div class="col-sm-6 user-avatar ">
+  <div class="row margin-vert">
+    <div class="col-sm-3 offset-sm-2 central-hori">
       <%= image_tag "#{@user.image}", class:"icon_image" %><br/>
     </div>
-    <div class="col-sm-6 user-info">
-      ユーザー名:<%= @user.name %><br/>
-      出身地:<%= @user.nationality %><br/>
-      訪問国数:<%= @posts.count+1%>/<%=numberofcontries%><br/>
-      <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
-      <% if logged_in? and current_user.id==@user.id %>
-        <%= link_to "ユーザー情報を編集する",edit_user_registration_path(params[:id])%>
-      <% end %>
-      <% if logged_in?%>
-        <div id ="follow-<%= @user.id %>">
-          <%= render "follow" ,user: @user%>
-        </div>
-      <% end %>
+    <div class="col-sm-7 user-total central-vert">
+      <div class="container">
+        <span><%= @user.name %><br/></span>
+        <span><%= @user.nationality %> 出身<br/></span>
+        <span><%= @posts.count+1%>/<%=numberofcontries%> ヵ国訪問<br/></span>
+        <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+        <% if logged_in? and current_user.id==@user.id %>
+          <%= link_to "ユーザー情報を編集する",edit_user_registration_path(params[:id])%>
+        <% end %>
+        <%= render "follow" ,user: @user%>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <%= render "shared/map_kai",{posts: @posts,latest_post: @latest_post} %>
+    <%= render "shared/map",{posts: @posts,latest_post: @latest_post} %>
   </div>
 
   <div class="row">
-    <section class="last_visited">
+    <div class="container last_visited">
       <p>最後に訪れた国</p>
       <ul>
         <%= render "visited" , post: @latest_post %>
       </ul>
-    </section>
+    </div>
   </div>
   
   <div class="row">
@@ -52,5 +49,5 @@
       </div>
     </section>
   </div>
-  <p>＊＊＊🍀いろんな機能の追加🍀＊＊＊</p>
+  <p></p>
 </div>

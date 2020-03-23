@@ -1,7 +1,11 @@
-<% if current_user != user %>
-  <% if user.followed_by?(current_user) %>
-    <p><%=link_to image_tag("following.png",width: '24'), user_relationships_path(user.id), method: :delete, remote: true %></p>
-  <% else %>
-    <p><%=link_to image_tag("follow_yet.png",width: '24'), user_relationships_path(user.id), method: :post, remote: true %></p>
-  <% end %>
+<% if logged_in?%>
+  <div id ="follow-<%= user.id %>">
+    <% if current_user != user %>
+      <% if user.followed_by?(current_user) %>
+        <p><%=link_to image_tag("following.png",width: '24'), user_relationships_path(user.id), method: :delete, remote: true %></p>
+      <% else %>
+        <p><%=link_to image_tag("follow_yet.png",width: '24'), user_relationships_path(user.id), method: :post, remote: true %></p>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>

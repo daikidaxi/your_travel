@@ -4,8 +4,8 @@
 
 
 .icon_image {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 100px;
   object-fit: cover;
   //サイズ指定
@@ -14,20 +14,21 @@
 }
 
 .user-total{
-  margin: 20px;
+  font-size: 20px;
 }
-.user_info {
-  // align-items: center;
-}
+// .user_info {
+//   font-size: 20px;
+// }
 
-.user_avatar {
-  // align-items: end; /* アイテムを末尾にまとめる */ 
-  // align-items:flex-end;
-  margin:10;
-}
+// .user_avatar {
+//   // align-items: end; /* アイテムを末尾にまとめる */ 
+//   // align-items:flex-end;
+//   margin:10;
+// }
 
-.margin{
-  margin:5px;
+.margin-vert{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #result {

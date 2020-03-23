@@ -1,22 +1,25 @@
 <% provide(:title, "#{@name}") %>
 <% breadcrumb :country,@name %>
 
+<p></p>
 <div class="container">
   <div class="row">
-    <div><img src="https://flagpedia.net/data/flags/h120/<%=@code.downcase%>.webp"></div>
-    <div><%=@name%></div>
+      <div class="col-sm-4 offset-sm-2 central-hori"><img src="https://flagpedia.net/data/flags/h120/<%=@code.downcase%>.webp"></div>
+      <div class="col-sm-6 central-vert large-font"><%=@name%></div>
+
   </div>
-<hr>
+  <hr>
 
   <div class="row">
-    wikiAPI<br/>
     <%=@info%>
   </div>
-<hr>
-  <div class="row">
-    <= render "shared/map_kai",posts: @posts %>
+  <div class="text-right">
+    <p>（<%= link_to"Wikipedia","https://ja.wikipedia.org/wiki/#{@name}"%>より引用）</p>
   </div>
-<hr>
+
+  <hr>
+  <%= render "shared/map",{results: @results} %>
+  <hr>
 
   <div class="row">
     みんなの投稿
@@ -31,16 +34,3 @@
     <% end %>
   </div>
 </div>
-
-<script>
-function getLatLng(place) {
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ address: place }, function(results, status){
-    if (status === 'OK'){
-      var latlag=geometry.location;
-      console.log(latlag);
-      return latlag
-    }
-  }); 
-}
-</script>

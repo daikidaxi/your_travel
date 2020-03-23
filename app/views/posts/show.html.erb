@@ -2,26 +2,31 @@
 <% breadcrumb :post,@post %>
 
 
-<div class="container" style="max-width: 700px;">  
-  <div class="row">
+<div class="container">  
+  <div class="row offset-sm-2 col-sm-8 user-total">
     <div class = "mx-auto" style="width: 500px;">
       <%= render "shared/user",user: @post.user %>
+      <% if @post.user==current_user%>
+        <div><%= link_to "編集",edit_post_path(params[:id]) %></div>
+      <% end %>
     </div>
   </div>
 
-  <% if @post.user==current_user%>
-    <div><%= link_to "編集",edit_post_path(params[:id]) %></div>
-  <% end %>
-
-  <div class="row">
-    <div class = "mx-auto" style="width: 500px;">
-    国旗にする
-      <%= image_tag"#{@post.photo}", class: "photo-show"%>
+  <div class="row col-sm-6">
+    <%= link_to @post.country,"countries/country?name=#{@post.country}"%>
+  </div>
+  <div class="row col-10 offset-1">
+    <div class = "mx-auto">
+      <% if @post.photo.url == "default.jpg" %>
+        <%= image_tag("https://flagpedia.net/data/flags/ultra/#{@post.country_code.downcase}.png",class: "photo-show")%>
+      <% else %>
+        <%= image_tag"#{@post.photo}",class: "photo-show"%>
+      <% end %>
     </div>
   </div>
 
   <div class="row">
-    <div class = "mx-auto" style="width: 500px;">
+    <div class = "mx-auto" style="width: 600px;">
       <div id="date">
         <%= render "shared/date",post: @post %>
       </div>
@@ -32,21 +37,18 @@
   </div>
 
   <div class="row">
-    <div class = "mx-auto" style="width: 500px;">
+    <div class = "mx-auto" style="width: 600px;">
       <%= render "shared/content",post: @post %>
     </div>
   </div>
 
   <div class="row">
-    <div class = "mx-auto" style="width: 500px;">
+    <div class = "mx-auto" style="width: 600px;">
       コメント機能
     </div>
   </div>
 
-  <div class="row">
-    <div class = "mx-auto" style="width: 500px;">
-      <%= render "shared/map_kai",post: @post %>
-    </div>
- </div>
+  <%= render "shared/map",post: @post %>
+
   
 </div>

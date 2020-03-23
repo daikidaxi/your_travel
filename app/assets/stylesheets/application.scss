@@ -16,11 +16,26 @@
  @import "bootstrap"; 
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 
- body{ 
+
+body{ 
   background-color:#dddddd;
   color : #000000;
   font-size:100%;
+  // font-family: 'Noto Sans JP', sans-serif;
+
+}
+
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
 }
 
 .contents{
@@ -35,6 +50,9 @@
   font-size: 1.6em;
   line-height: 1.5em;
   border-radius: 15px;
+}
+.content-box{
+  background: #ccc;
 }
 
 
@@ -108,11 +126,54 @@ textarea {
   border-radius: 100px;
 }
 
+.title-common{
+  font-family: 'Noto Sans JP', sans-serif;
+  padding-top: 10px;
+  font-size: 35px;
+}
+
+.padd-common{
+  padding-bottom: 20px;
+}
+
+.central{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.central-vert{
+  display: flex;
+  align-items: center;
+}
+
+.central-hori{
+  display: flex;
+  justify-content: center;
+}
+
+.large-font{
+  font-size: 35px;
+}
+
+.font-standard{
+  font-size: 20px;
+}
+
 /* 黒点なし */
 ul {
   margin:0px;
   list-style: none;
 }
+
+// トップページ
+.home_table{
+  // margin:30px;
+  padding: 20px;
+  font-size: 20px;
+}
+
+
 
 /* 入力フォーム */
 
@@ -157,6 +218,23 @@ ul {
   object-fit: cover;
 }
 
+
+// post
+
+.photo-show{
+  width: 100%;
+  height: 75%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  object-fit: cover;
+
+}
+
+
+
 // visitedの画像
 .photo{
   width: 200px;
@@ -166,19 +244,32 @@ ul {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  object-fit: cover;
+
 }
 
-.photo-show{
-  width: 500px;
-  height: 450px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
 
 .image-country{
   width: 200px;
   height: 100%;
+}
+
+// 国一覧
+
+.country-card{
+  padding:20px 0px 15px 0px;
+  margin:5px 0px;
+  background: rgb(233, 233, 233);
+  flex-wrap: wrap;
+}
+
+// ユーザー一覧
+
+.user-card{
+  padding-top:20px;
+  padding-bottom: 20px;
+  margin-top:10px;
+  margin-bottom: 10px;
+  background: rgb(233, 233, 233);
+  // flex-wrap: wrap;
 }
