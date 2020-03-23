@@ -12,7 +12,7 @@ crumb :login do
 end
 
 crumb :users do
-  link 'ユーザー一覧', users_path
+  link 'ユーザー', users_path
   parent :root
 end
 
@@ -37,7 +37,7 @@ crumb :post do |post|
 end
 
 crumb :countries do
-  link "国一覧", countries_path
+  link "全ての国", countries_path
   parent :root
 end
 

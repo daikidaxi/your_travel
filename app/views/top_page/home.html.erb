@@ -2,22 +2,36 @@
 <% breadcrumb :home %>
 
 <div class="container">
-    <p><%= link_to "ユーザー一覧",users_path%></p>
-    <p><%= link_to "国一覧","/countries"%></p>
-    <% if not logged_in?%>
-        <div class="">
-            <h1>あなたの旅を記録しよう</h1>
-            <p><%= link_to("ログイン",new_user_session_path) %></p>
-            <p><%= link_to("新規登録",new_user_registration_path) %></p>
+    <% if logged_in? %>
+        <div class="row text-center home_table">
+            <span class="offset-md-2 col-md-3 btn btn-block"><%= link_to "ユーザー",users_path%></span>
+            <span class="offset-md-2 col-md-3 border border-info"><%= link_to "全ての国",countries_path%></span>
+        </div>
+        <%= render "shared/map",{posts: @posts} %>
+        <div class="row">
+            <p>最新の訪問</p><br/>
+            <div class="container">
+                <% @posts.each do |post|%>
+                    <ul>
+                        <%= render "users/user", post: post %>
+                        <%= render "users/visited", post: post %>
+                    </ul>
+                <% end %>
+            </div>
+        </div>
+    <% else %>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <p class="h2 font-weight-normal text-center">あなたの旅を記録しよう</p>
+                </div>
+            </div>
+            <div class="mx-auto" style="width:200px;">
+                
+                    <span class="btn text-center"><%= link_to("ログイン",new_user_session_path) %></span>
+                    <span class="btn btn-warning text-center"><%= link_to("新規登録",new_user_registration_path) %></span>
+                
+            </div>
         </div>
     <% end %>
-    <%= render "shared/map_kai",{posts: @posts} %>
-    <p>最新の訪問</p>
-        <% @posts.each do |post|%>
-            <ul>
-
-                <%= render "users/user", post: post %>
-                <%= render "users/visited", post: post %>
-            </ul>
-        <% end %>
 </div>

@@ -1,18 +1,23 @@
 <% provide(:title, 'ユーザー') %>
 <% breadcrumb :users %>
 
-<div class="container" style="max-width: 700px;">
-  <h3 class="text-center">ユーザー一覧</h3>
+<div class="container">
+  <p class="offset-md-3 col-md-6 text-center title-common">ユーザー</p> 
   <div class="row">
-    <div class = "mx-auto" style="width: 500px;">
-      <ul class="users">
-        <% @users.each do |user| %>
-          <li>
+    <div class = "container">
+      <% @users.each do |user| %>
+        <div class="row offset-md-3 col-md-7 user-card">
+          <div class="col-sm-3">
             <%= image_tag "#{user.image}",size: "100x100",:class=>"img_circle" %>
-            <%= link_to user.name, user %>
-          </li>
-        <% end %>
-      </ul>
+          </div>
+          <div class="col-sm-4 central-vert font-standard">
+            <span class=""><%= link_to user.name, user %></span>
+          </div>
+          <div class="col-sm-5 central-vert">
+            <span> <%= render"follow",user: user %></span>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

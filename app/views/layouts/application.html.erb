@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title><%= yield(:title) %> | YourTravel</title>
     <meta charset="utf-8">
@@ -11,14 +11,15 @@
 
   <body>
     <header id="header">
-      <div class="container ">
+      <div class="container">
         <ul class="inl_block">
-          <p class="header_left col-md-3"><%= link_to "Your Travel",root_path%></p>
-          <div class="header_right col-md-auto">
+          <p class="header_left col-sm-3"><%= link_to "Your Travel",root_path%></p>
+          <div class="header_right col-sm-auto">
             <li><%= link_to 'テスト', "/test"%></li>
             <% if user_signed_in? %>
-              <li><%= image_tag "#{current_user.image}", class:"header_user_avatar"%> <%= link_to current_user.name, user_path(current_user) %></li>
               <li><%= link_to '行った国を追加', new_post_path%></li>
+              <li> <%= link_to current_user.name, user_path(current_user) %></li>
+              <li><%= link_to image_tag("#{current_user.image}", class:"header_user_avatar"), user_path(current_user)%></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to '新規登録', new_user_registration_path %></li>
@@ -29,16 +30,21 @@
       </div>
     </header>
     <div class="container">
-      <div class="breadcrumbs">
+      <div class="breadcrumbs" style="margin:5px;">
         <%= breadcrumbs pretext: "", separator: " &rsaquo; " %>
       </div>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+      <div class="container content-box">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+        <p class="padd-common"></p>
+      </div>
     </div>
-    <%= debug(params) if Rails.env.development? %>
 
+    <footer>
+      <p class="copyright text-center">&copy; 2020 YourTravel </p>
+    </footer>
   </body>
+  
 
 </html>

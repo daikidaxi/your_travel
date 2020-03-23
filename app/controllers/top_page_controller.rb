@@ -25,7 +25,7 @@ class TopPageController < ApplicationController
         }
     page = Wikipedia.find(@name)
     @info = page.summary
-
+    @results = Geocoder.search("#{@name}")
   end
 
   def test
@@ -37,6 +37,7 @@ class TopPageController < ApplicationController
     @po=Post.find_by(id: 24)
 
     @sql=Post.where(user_id: 10).where(id: 17)
+    @results = Geocoder.search("福岡")
 
   end
 end

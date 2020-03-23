@@ -1,12 +1,18 @@
-<% provide(:title, "国一覧") %>
+<% provide(:title, "全ての国") %>
 <% breadcrumb :countries %>
 
-<div class="container">
+<div class="container content-box">
+  <div class="row">
+    <p class="offset-md-3 col-md-6 text-center title-common">全ての国</p> 
+  </div>
+
   <div class="row">
     <% @countries_data.each do |country|%>
-      <div class="rowwwww">
-        <img src="https://flagpedia.net/data/flags/h120/<%=country[1].downcase%>.webp">
-        <%=link_to country[0],"/countries/country?name=#{country[0]}"%>
+      <div class="col-md-6">
+        <div class="text-center h4 country-card">
+          <img  src="https://flagpedia.net/data/flags/h120/<%=country[1].downcase%>.webp"><br/>
+          <%=link_to country[0],"/countries/country?name=#{country[0]}"%>
+        </div>
         
       </div><hr>
     <%end%>
