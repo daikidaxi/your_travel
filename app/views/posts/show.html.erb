@@ -3,36 +3,41 @@
 
 
 <div class="container">  
-  <div class="row offset-sm-2 col-sm-8 user-total">
-    <div class = "mx-auto" style="width: 500px;">
-      <%= render "shared/user",user: @post.user %>
-      <% if @post.user==current_user%>
-        <div><%= link_to "編集",edit_post_path(params[:id]) %></div>
-      <% end %>
+  <div class="row margin-vert">
+      <div class="col-sm-2 offset-sm-4 central-hori">
+        <%= image_tag "#{@post.user.image}",size: "150x150",class:"img_circle" %><br/>
+      </div>
+      <div class="col-sm-6 user-total central-vert">
+        <div class="container h3">
+          <span><%= link_to @post.user.name,user_path(@post.user) %><br/></span>
+        </div>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col text-center h2">
+      <%= link_to @post.country,"/countries/country?name=#{@post.country}"%>
     </div>
   </div>
-
-  <div class="row col-sm-6">
-    <%= link_to @post.country,"countries/country?name=#{@post.country}"%>
-  </div>
   <div class="row col-10 offset-1">
-    <div class = "mx-auto">
+    <div class = "mx-auto photo-show" style="width: 800px;">
       <% if @post.photo.url == "default.jpg" %>
-        <%= image_tag("https://flagpedia.net/data/flags/ultra/#{@post.country_code.downcase}.png",class: "photo-show")%>
+        <%= image_tag("https://flagpedia.net/data/flags/ultra/#{@post.country_code.downcase}.png",class: "photo-show photo-flex")%>
       <% else %>
-        <%= image_tag"#{@post.photo}",class: "photo-show"%>
+        <%= image_tag"#{@post.photo}",class: "photo-show photo-flex"%>
       <% end %>
     </div>
   </div>
 
   <div class="row">
-    <div class = "mx-auto" style="width: 600px;">
-      <div id="date">
-        <%= render "shared/date",post: @post %>
+    <div class = "mx-auto" style="width: 800px;">
+      <div id="date_liked">
+        <span class="text-left block block-left"><%= render "shared/date",post: @post%></span>
+        <span class="text-right block"><%= render "shared/liked_part",post: @post %></span>
       </div>
-      <div id="liked">
-        <%= render "shared/liked_part",post: @post %>
-      </div>
+      <% if @post.user==current_user%>
+        <div><%= link_to "編集",edit_post_path(params[:id]) %></div>
+      <% end %>
     </div>
   </div>
 

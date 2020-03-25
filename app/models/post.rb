@@ -29,5 +29,8 @@ class Post < ApplicationRecord
     likes.where(user_id: user.id).exists?
   end
   
+  def resize_photo
+    return self.resize_photo.variant(resize: '50x50')
+  end
 end
 

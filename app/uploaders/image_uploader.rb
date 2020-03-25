@@ -5,10 +5,14 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process resize_to_fill: [1080, 1080, 'Center']
 
-  # version :thumb do
-  #   process resize_to_fill: [50, 50, 'Center']
+  # version :avatar do
+  #   process resize_to_fill: [200, 200, 'Center']
   # end
 
+  # version :photo do
+  #   process resize_to_fill: [800, 600, 'Center']
+  # end
+  
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog

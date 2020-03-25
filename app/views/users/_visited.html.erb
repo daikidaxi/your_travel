@@ -1,11 +1,26 @@
-<li>
-  <%= render "posts/post_photo",post: post%>
-  <span><%= link_to post.country,post_path(post) %></span>
-  <%= render "shared/date",post: post %>
-  <%= render "shared/liked_part",post: post %>
-  <hr>
-</li>
+<div class="container visited-card">
+  <div class="row">
+    <div class="col-2 central-hori">
+      <div class="row central-hori">
+        <% unless @path.is("users#show") %>
+          <div class="visited-user">
+            <span class="central"><%= link_to (image_tag "#{post.user.image}",size: "75x75",class: "img_circle"),post.user %></span><br/>
+            <span class="central"><%= link_to post.user.name, post.user, class: "h4"%></span>
+          </div>
+        <% end %>
 
-
-
-
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="central">
+        <%= render "posts/post_photo",post: post%>
+      </div>
+    </div>
+    <div class="col-6 visited-font visited-content-sub">
+      <span><%= link_to post.country,post_path(post) %></span><br/>
+      <%= post.content%><br/>
+      <span id="date"><%= render "shared/date", post: post %></span>
+      <span id="liked"><%= render "shared/liked_part",post: post %></span>
+    </div>
+  </div>
+</div>

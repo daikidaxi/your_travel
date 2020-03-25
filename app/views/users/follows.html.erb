@@ -1,23 +1,14 @@
 <% provide(:title, "#{@user.name}がフォローしているユーザー") %>
 <% breadcrumb :follows,@user %>
 
-<div class="container" style="max-width: 700px;">
-  <h3 class="text-center">フォロー</h3>
+<div class="container">
+  <p class="offset-md-3 col-md-6 text-center title-common">フォロー</p> 
   <div class="row">
-    <div class = "mx-auto" style="width: 500px;">
+    <div class = "container">
     <%if @users.count==0%>
       <p class="text-center">まだフォローしているユーザーはいません</p>
     <%else%>
-      <% @users.each do |user| %>
-        <div>
-          <hr>
-          <%= image_tag "#{user.image}",size: "50x50" %>
-          <%= link_to user.name, user_path(user.id) %>
-            <div id="follow-<%=user.id%>">
-              <%= render "users/follow",user: user%>
-            </div>
-        </div>
-      <% end %>
+      <%= render 'user',users: @users%>
     <%end%>
     </div>
   </div>
