@@ -18,7 +18,7 @@
             <li><%= link_to 'テスト', "/test"%></li>
             <% if user_signed_in? %>
               <li><%= link_to '行った国を追加', new_post_path%></li>
-              <li> <%= link_to current_user.name, user_path(current_user) %></li>
+              <li><%= link_to current_user.name, user_path(current_user) %></li>
               <li><%= link_to image_tag("#{current_user.image}", class:"header_user_avatar"), user_path(current_user)%></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
@@ -37,7 +37,7 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <%= yield %>
-        <p class="padd-common"></p>
+        <p class="padd-bottom"></p>
       </div>
     </div>
 

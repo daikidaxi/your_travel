@@ -5,19 +5,7 @@
   <p class="offset-md-3 col-md-6 text-center title-common">ユーザー</p> 
   <div class="row">
     <div class = "container">
-      <% @users.each do |user| %>
-        <div class="row offset-md-3 col-md-7 user-card">
-          <div class="col-sm-3">
-            <%= image_tag "#{user.image}",size: "100x100",:class=>"img_circle" %>
-          </div>
-          <div class="col-sm-4 central-vert font-standard">
-            <span class=""><%= link_to user.name, user %></span>
-          </div>
-          <div class="col-sm-5 central-vert">
-            <span> <%= render"follow",user: user %></span>
-          </div>
-        </div>
-      <% end %>
+      <%= render 'user',users: @users%>
     </div>
   </div>
 </div>

@@ -26,30 +26,25 @@
   </div>
 
   <div class="row">
-    <div class="container last_visited">
+    <div class="container">
       <p>最後に訪れた国</p>
-      <ul>
-        <%= render "visited" , post: @latest_post %>
-      </ul>
+      <%= render "users/visited", post: @latest_post %>
     </div>
   </div>
   
   <div class="row">
-    <section class="user_posts">
-      <div class="col-md-8">
+    <div class="container">
         <% if @posts.any? or @latest_post.present? %>  
           <p>訪れた国</p>
           <% @posts.each do |post|%>
-            <ul>
-              <%= render "visited" , post: post %>
-            </ul>
+              <%= render "users/visited", post: post %>
           <% end %>
         <% else %>
           <h2>あなたが訪れた国を投稿してください</h2>
           <%= link_to "投稿する",new_post_path %>
         <% end %>
       </div>
-    </section>
+    </div>
   </div>
   <p></p>
 </div>

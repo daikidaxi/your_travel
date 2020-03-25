@@ -132,8 +132,12 @@ textarea {
   font-size: 35px;
 }
 
-.padd-common{
+.padd-bottom{
   padding-bottom: 20px;
+}
+
+.padd-top{
+  padding-top: 20px;
 }
 
 .central{
@@ -222,37 +226,52 @@ ul {
 // post
 
 .photo-show{
+  width: 800px;
+  height: 600px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  object-fit: cover;
+}
+
+.photo-flex{
   width: 100%;
-  height: 75%;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  object-fit: cover;
-
-}
-
-
-
-// visitedの画像
-.photo{
-  width: 200px;
-  height: 170px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  object-fit: cover;
-
-}
-
-
-.image-country{
-  width: 200px;
   height: 100%;
 }
+
+// ユーザー、国一覧のボタン
+#g_navi ul {
+  margin: 0 auto;
+  margin-left: 20px;
+  margin-right: 20px;
+	padding: 0 3%;
+	width: 94%;
+	max-width: 960px; 
+}
+	#g_navi ul li {
+    font-size: 25px;
+		position: relative;
+		display: inline-block;
+		width: 50%;
+	}
+		#g_navi ul li a {
+	 		display: block;
+			padding: 17px 5%;
+			width: 90%;
+      color: rgb(42, 168, 190);
+      background-color: rgb(206, 255, 255);
+			text-align: center;
+      text-decoration: none;
+		}
+
+  .menu_btn{
+    font-size: 25px;
+		position: relative;
+		display: inline-block;
+		width: 50%;
+  }
 
 // 国一覧
 
@@ -261,6 +280,9 @@ ul {
   margin:5px 0px;
   background: rgb(233, 233, 233);
   flex-wrap: wrap;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2);
 }
 
 // ユーザー一覧
@@ -271,22 +293,120 @@ ul {
   margin-top:10px;
   margin-bottom: 10px;
   background: rgb(233, 233, 233);
-  // flex-wrap: wrap;
+  box-shadow: 0px 4px 4px rgba(0,0,0,.4);
+
 }
 
+// 訪問国
 
+.visited-card{
+  padding-top:20px;
+  padding-bottom: 20px;
+  margin-top:10px;
+  margin-bottom: 10px;
+  background: rgb(233, 233, 233);
+  box-shadow: 0px 4px 4px rgba(0,0,0,.4);
+
+}
+
+// visitedの画像
+.visited-user{
+  padding-top:20px;
+  padding-left:20px;
+}
+
+.photo-visited{
+  width: 200px;
+  height: 170px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  object-fit: cover;
+}
+
+.visited-font{
+  font-size: 20px;
+
+}
+
+#date{
+  color: dimgray;
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+#liked{
+  color: dimgray;
+  font-size: 16px;
+}
+
+#date_liked{
+  color: dimgray;
+  font-size: 20px;
+}
+
+.block-left{
+  float: left;
+}
+
+.block{
+  display: block;
+}
 // フォローボタン
 
-.btn-gradient-radius {
+.btn-follow {
   display: inline-block;
   padding: 7px 20px;
   border-radius: 25px;
   text-decoration: none;
   color: #FFF;
-  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  // background-image: linear-gradient(#6794fd79 50%, #67cfff7e 100%);
+  background-color:  #6890fc7e;
   transition: .4s;
+  border-color: rgb(120, 167, 255);
+  border-style: solid;
 }
 
-.btn-gradient-radius:hover {
-  background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+.btn-follow:hover {
+  // background-image: linear-gradient(#6795fd 0%, #67ceff 70%);
+  background-color:  #6795fd;
+
+}
+
+.btn-following {
+  display: inline-block;
+  padding: 7px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: rgb(120, 132, 148);
+  background-color:  #7da3fc79;
+
+  transition: .4s;
+  border-color: rgb(164, 196, 255);
+  border-style: solid;
+}
+
+.btn-following:hover {
+  // background-image: linear-gradient(#6795fd 50%, #67ceff 70%);
+  background-color:  #6795fd;
+
+}
+
+
+// 国情報  ?????
+
+country-info{
+  border-color: dark;
+  border-style: solid;
+}
+
+
+
+.test-frame{
+  border-color: dark;
+  border-style: solid;
 }
