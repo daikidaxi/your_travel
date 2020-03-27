@@ -1,0 +1,15 @@
+{
+  "sqltools.connections": [
+    {
+      "database": "yourtravel_devlopment",
+      "dialect": "MySQL",
+      "isActive": false,
+      "isConnected": false,
+      "name": "user",
+      "password": "password",
+      "port": 3306,
+      "server": "localhost",
+      "username": "user"
+    }
+  ]
+}
