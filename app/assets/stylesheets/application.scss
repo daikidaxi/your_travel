@@ -185,7 +185,10 @@ ul {
   width: 200px;
   height: 200px;
   border-radius: 100px;
-
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
 }
  
 #img_field i {
@@ -204,7 +207,7 @@ ul {
 }
  
 #img_field:hover {
-  background-color: #EDBC6C;
+  background-color: rgb(255, 255, 255);
   transition: 0.3s ease-out;
   opacity: 0.9;
 }
@@ -222,6 +225,43 @@ ul {
   object-fit: cover;
 }
 
+
+#photo_field {
+  width: 400px;
+  height: 300px;
+}
+
+#photo_field i {
+  font-size: 100px;
+  color: #aaa;
+  line-height: 250px;
+  transition: 0.3s ease-out;
+}
+ 
+#photo_field i.add {
+  display: none;
+  font-size: 50px;
+  position: absolute;
+  // top: -90px;
+  // right: 15px;
+}
+ 
+#photo_field:hover {
+  background-color: rgb(255, 255, 255);
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
+ 
+#photo_field:hover i {
+  transition: 0.3s ease-out;
+  display: block;
+  color: #fff;
+}
+
+.post-photo{
+  width: 400px;
+  height: 300px;
+}
 
 // post
 
@@ -270,7 +310,8 @@ ul {
     font-size: 25px;
 		position: relative;
 		display: inline-block;
-		width: 50%;
+    width: 50%;
+    background-color: darkgrey;
   }
 
 // 国一覧

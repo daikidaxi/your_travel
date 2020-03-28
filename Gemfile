@@ -77,7 +77,11 @@ gem 'wikipedia-client'
 gem 'gretel'
 
 # MySQL
-gem 'mysql2', '0.5.2'
+gem 'mysql2', '0.5.2', group: [:development, :test]
+
+# for heroku
+gem 'pg', group: :production
+
 
 
 group :development, :test do

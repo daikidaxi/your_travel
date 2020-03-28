@@ -34,9 +34,12 @@
       <div id="date_liked">
         <span class="text-left block block-left"><%= render "shared/date",post: @post%></span>
         <span class="text-right block"><%= render "shared/liked_part",post: @post %></span>
+      </div><br/>
+      <div>
+        <span> <%=@post.content%> </span>
       </div>
       <% if @post.user==current_user%>
-        <div><%= link_to "編集",edit_post_path(params[:id]) %></div>
+        <div><br/><%= link_to "編集",edit_post_path(params[:id]) %></div>
       <% end %>
     </div>
   </div>
@@ -49,7 +52,7 @@
 
   <div class="row">
     <div class = "mx-auto" style="width: 600px;">
-      コメント機能
+      コメント機能(実装予定)
     </div>
   </div>
 

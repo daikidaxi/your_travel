@@ -43,3 +43,5 @@ yarn-debug.log*
 /public/countriesdata/80pix
 /public/countriesdata/120pix
 
+
+/.vscode
