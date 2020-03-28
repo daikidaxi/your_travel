@@ -12,12 +12,14 @@
         var mapCenter = {lat: <%=nationality.first.coordinates[0]%>,lng: <%=nationality.first.coordinates[1]%>};
       <% elsif @path.is("users#show") %>
         var mapCenter = {lat: <%=latest_post.latitude%>,lng: <%=latest_post.longitude%>};
-      <% elsif @path.is("top_page#home" and posts.nil?)%>
+      <% elsif @path.is("top_page#home") and posts.any?%>
         var mapCenter = {lat: <%=posts.first.latitude%>,lng: <%=posts.first.longitude%>};
       <% elsif @path.is("posts#show")%>
         var mapCenter = {lat: <%=post.latitude%>,lng: <%=post.longitude%>};
       <% elsif @path.is("top_page#country")%>
         var mapCenter = {lat: <%=results.first.coordinates[0]%>,lng: <%=results.first.coordinates[1]%>};
+      <% else%>
+        var mapCenter = {lat: 36.204824,lng: 138.252924};
       <% end %>
 
       var mapArea = document.getElementById('maps');
