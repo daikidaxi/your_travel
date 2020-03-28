@@ -43,3 +43,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
+  database: pg_prod
+  username: user
+  password: password
