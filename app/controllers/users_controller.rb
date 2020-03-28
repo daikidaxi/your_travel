@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   def show
     @user=User.find_by(id: params[:id])
     @latest_post=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').first
-    @posts=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').where.not(id: @latest_post.id)
+    @posts=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').where.not(id: @latest_post.id) unless @latest_post.nil?
+    @nationality = Geocoder.search("#{@user.nationality}")
   end
 
   # def update

@@ -28,16 +28,4 @@ class TopPageController < ApplicationController
     @results = Geocoder.search("#{@name}")
   end
 
-  def test
-    @latest_post=Post.find_by(id: 27)
-    @posts=Post.limit(10).order('visited_date DESC, created_at DESC')
-    nationality="アンドラ"
-    @kakunou=draw_country_data(nationality)
-    @first=[]
-    @po=Post.find_by(id: 24)
-
-    @sql=Post.where(user_id: 10).where(id: 17)
-    @results = Geocoder.search("福岡")
-
-  end
 end

@@ -2,28 +2,7 @@
 <% breadcrumb :home %>
 
 <div class="container padd-bottom">
-    <% if logged_in? %>
-        <nav id="g_navi" style="display:none;">
-            <ul>
-                <li><%= link_to "ユーザーあああああああああああああああああああ",users_path%></li><li><%= link_to "全ての国",countries_path%></li>
-            </ul>
-        </nav>
-        <div class="row text-center home_table">
-            <span class="offset-md-2 col-md-3 menu_btn"><%= link_to "ユーザー",users_path%></span>
-            <span class="offset-md-2 col-md-3 menu_btn"><%= link_to "全ての国",countries_path%></span>
-        </div>
-        <%= render "shared/map",{posts: @posts} %>
-        <div class="container">
-            <div class="row">
-                <p class="h3 padd-top">最新の訪問</p><br/>
-                <div class="container">
-                    <% @posts.each do |post|%>
-                        <%= render "users/visited", post: post %>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-    <% else %>
+    <% if not logged_in? %>
         <div class="mb-3">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
@@ -38,4 +17,24 @@
             </div>
         </div>
     <% end %>
+    <nav id="g_navi" style="display:none;">
+        <ul>
+            <li><%= link_to "ユーザーあああああああああああああああああああ",users_path%></li><li><%= link_to "全ての国",countries_path%></li>
+        </ul>
+    </nav>
+    <div class="row text-center home_table">
+        <span class="offset-md-2 col-md-3 menu_btn"><%= link_to "ユーザー",users_path%></span>
+        <span class="offset-md-2 col-md-3 menu_btn"><%= link_to "全ての国",countries_path%></span>
+    </div>
+    <%= render "shared/map",{posts: @posts} %>
+    <div class="container">
+        <div class="row">
+            <p class="h3 padd-top">最新の訪問</p><br/>
+            <div class="container">
+                <% @posts.each do |post|%>
+                    <%= render "users/visited", post: post %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
