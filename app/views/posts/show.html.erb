@@ -4,15 +4,15 @@
 
 <div class="container">  
   <div class="row margin-vert">
-      <div class="col-sm-2 offset-sm-4 central-hori">
-        <%= image_tag "#{@post.user.image}",size: "150x150",class:"img_circle" %><br/>
-      </div>
-      <div class="col-sm-6 user-total central-vert">
-        <div class="container h3">
-          <span><%= link_to @post.user.name,user_path(@post.user) %><br/></span>
-        </div>
+    <div class="col-sm-2 offset-sm-4 central-hori">
+      <%= image_tag "#{@post.user.image}",size: "150x150",class:"img_circle" %><br/>
+    </div>
+    <div class="col-sm-6 user-total central-vert">
+      <div class="container h3">
+        <span><%= link_to @post.user.name,user_path(@post.user) %><br/></span>
       </div>
     </div>
+  </div><hr/>
 
   <div class="row">
     <div class="col text-center h2">
@@ -21,7 +21,7 @@
   </div>
   <div class="row col-10 offset-1">
     <div class = "mx-auto photo-show" style="width: 800px;">
-      <% if @post.photo.url == "default.jpg" %>
+      <% if @post.photo.url == "default.png" %>
         <%= image_tag("https://flagpedia.net/data/flags/ultra/#{@post.country_code.downcase}.png",class: "photo-show photo-flex")%>
       <% else %>
         <%= image_tag"#{@post.photo}",class: "photo-show photo-flex"%>
@@ -38,9 +38,7 @@
       <div>
         <span> <%=@post.content%> </span>
       </div>
-      <% if @post.user==current_user%>
-        <div><br/><%= link_to "編集",edit_post_path(params[:id]) %></div>
-      <% end %>
+
     </div>
   </div>
 
@@ -57,6 +55,10 @@
   </div>
 
   <%= render "shared/map",post: @post %>
-
+  <div class="row text-center">
+    <% if @post.user==current_user%>
+      <div class="offset-md-4 col-md-4"><br/><%= link_to "訪問の情報を編集する",edit_post_path(params[:id]) %></div>
+    <% end %>
+  </div>
   
 </div>

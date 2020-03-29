@@ -1,5 +1,5 @@
 <% provide(:title, "トップページ") %>
-<% breadcrumb :home %>
+<% breadcrumb :root,"ホーム" %>
 
 <div class="container padd-bottom">
     <% if not logged_in? %>
@@ -17,11 +17,6 @@
             </div>
         </div>
     <% end %>
-    <nav id="g_navi" style="display:none;">
-        <ul>
-            <li><%= link_to "ユーザーあああああああああああああああああああ",users_path%></li><li><%= link_to "全ての国",countries_path%></li>
-        </ul>
-    </nav>
     <div class="row text-center home_table">
         <span class="offset-md-2 col-md-3 menu_btn"><%= link_to "ユーザー",users_path%></span>
         <span class="offset-md-2 col-md-3 menu_btn"><%= link_to "全ての国",countries_path%></span>

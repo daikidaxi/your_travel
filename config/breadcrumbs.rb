@@ -2,10 +2,6 @@ crumb :root do
   link "ホーム", root_path
 end
 
-crumb :home do
-  link "後で修正"
-end
-
 crumb :login do
   link "ログイン"
   parent :root

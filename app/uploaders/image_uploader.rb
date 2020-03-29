@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process resize_to_fill: [1080, 1080, 'Center']
+  process resize_to_fill: [1080, 1080, "Center"]
 
   # version :avatar do
   #   process resize_to_fill: [200, 200, 'Center']
@@ -12,7 +12,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # version :photo do
   #   process resize_to_fill: [800, 600, 'Center']
   # end
-  
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -27,7 +27,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url(*args)
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    "default.jpg"
+    "default.png"
     # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
 
@@ -54,10 +54,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     "#{secure_token}.#{file.extension}" if original_filename.present?
   end
-  
+
   protected
-    def secure_token
-      var = :"@#{mounted_as}_secure_token"
-      model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-    end
+
+  def secure_token
+    var = :"@#{mounted_as}_secure_token"
+    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  end
 end
