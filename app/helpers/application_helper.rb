@@ -38,6 +38,10 @@ module ApplicationHelper
     allcontries.length
   end
 
+  def check_continent(str)
+    
+  end
+
   # 渡されたユーザーでログインする
   # def log_in(user)
   #   session[:user_id] = user.id

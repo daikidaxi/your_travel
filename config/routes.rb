@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   get 'countries', to: 'top_page#countries'
   get 'countries/country', to: 'top_page#country'
   
-  # get 'posts/new'
-  # get 'posts/edit'
+  # # get 'posts/new'
+  # # get 'posts/edit'
+  # get "posts/:id/edit" => "posts#edit"
+
+  # get "posts/:id/edit" => "posts#edit"
+  # post "posts/:id/update" => "posts#update"
+
   get 'users/index'
   get 'users/show'
   
@@ -24,5 +29,10 @@ Rails.application.routes.draw do
   resources :posts do
     resource :likes, only: [:create, :destroy]
   end
+  
+    # get 'posts/new', to: 'posts#new'
+    # get 'posts/:id/edit', to: 'posts#edit'
+    # post 'posts/:id/update', to: 'posts#update'
+    delete 'posts/:id', to: 'posts#destroy'
   
 end

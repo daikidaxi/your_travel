@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit,:create,:update]
+  before_action :correct_user,   only: :destroy
 
   def new
     @post = current_user.posts.build #if user_signed_in?
@@ -18,7 +19,7 @@ class PostsController < ApplicationController
     insert_country_data(@post,@post.country)
     insert_counts(@post)
     if @post.save
-      redirect_to post_path(@post), notice:"投稿しました。"
+      redirect_to post_path(@post), notice:"投稿しました"
     else
       render'posts/new'
     end
@@ -32,6 +33,18 @@ class PostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:success] = "Micropost deleted"
+    redirect_to request.referrer || root_url
+    # @post = Post.find_by(id: params[:id])
+    # if @post.destroy
+    #   redirect_to root_path, notice: "削除しました" 
+    # else
+    #   render 'edit'
+    # end
   end
 
   private

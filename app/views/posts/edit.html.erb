@@ -3,5 +3,6 @@
 
 <%= render "post_form",post: @post %>
 <% if current_user==@post.user_id%>
-  削除しますか
+
 <% end %>
+  <p class="offset-3 col-6 text-center"> <%= button_to "削除する", @post, method: :delete %></p>
