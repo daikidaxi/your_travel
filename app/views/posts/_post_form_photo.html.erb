@@ -1,9 +1,10 @@
-<div class="field">
+<div class="field p-2">
   <%= f.label :photo %>
     <div id="photo_field" onClick="$('#file').click()" >
       <% if @post.photo.url.present? && @post.photo.url!="default.png" %>
         <%= image_tag(@post.photo.url,class: "post-photo") %>
       <% else %>
+      
       <% end %>
     </div>
   <%= f.file_field :photo, style: "display:none;", id: "file" %>

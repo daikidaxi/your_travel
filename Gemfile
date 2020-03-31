@@ -59,6 +59,8 @@ gem 'cancancan'
 # bootstrap
 gem 'webpacker', '~> 3.5'
 gem 'bootstrap'
+gem 'font-awesome-rails'
+
 
 # アイコン用
 gem 'font-awesome-sass', '~> 5.4.1'

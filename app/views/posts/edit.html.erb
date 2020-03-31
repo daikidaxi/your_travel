@@ -1,8 +1,12 @@
 <% provide(:title, "編集") %>
 <% breadcrumb :edit_post,@post %>
 
-<%= render "post_form",post: @post %>
-<% if current_user==@post.user_id%>
-
-<% end %>
-  <p class="offset-3 col-6 text-center"> <%= button_to "削除する", @post, method: :delete %></p>
+<div class="container" style="display: inline-block;">
+  <h3 class="text-center">ユーザー情報の編集</h3>
+  <div class="row">
+    <div class = "mx-auto" style="width: 500px;">
+      <%= render "post_form",post: @post %>
+    </div>
+  </div>
+  <span class="text-center"> <%= button_to "削除する", "/posts/#{@post.id}", method: :delete, class: "btn btn-secondary" %></span>
+</div>

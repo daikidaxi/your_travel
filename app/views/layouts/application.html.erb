@@ -32,7 +32,7 @@
       <div class="breadcrumbs" style="margin:5px;">
         <%= breadcrumbs pretext: "", separator: " &rsaquo; " %>
           <% if @path.is("top_page#home")%>
-            <span>ホーム</span>
+            <span><%= fa_icon 'home' %>ホーム</span>
           <% end %>
       </div>
       <div class="container content-box">

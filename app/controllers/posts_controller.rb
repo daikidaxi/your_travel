@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit,:create,:update]
-  before_action :correct_user,   only: :destroy
+  before_action :correct_user,   only: :edit
 
   def new
     @post = current_user.posts.build #if user_signed_in?
@@ -36,16 +36,24 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
-    flash[:success] = "Micropost deleted"
-    redirect_to request.referrer || root_url
-    # @post = Post.find_by(id: params[:id])
-    # if @post.destroy
-    #   redirect_to root_path, notice: "削除しました" 
-    # else
-    #   render 'edit'
-    # end
+    redirect_to root_path, notice: "投稿を削除しました" 
   end
+
+  # def destroy
+  #   @post=Post.find(params[:id])
+  #   @post.destroy
+    
+  #   flash[:success] = "投稿を削除しました"
+  #   redirect_to request.referrer || root_url,notice: "情報を更新sakujooooしました" 
+  #   # @post = Post.find_by(id: params[:id])
+  #   # if @post.destroy
+  #   #   redirect_to root_path, notice: "削除しました" 
+  #   # else
+  #   #   render 'edit'
+  #   # end
+  # end
 
   private
     def post_params
