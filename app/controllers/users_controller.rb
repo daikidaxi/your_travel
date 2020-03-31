@@ -13,33 +13,37 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find_by(id: params[:id])
+    @followings = @user.followings.count
+    @followers = @user.followers.count
     @latest_post=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').first
     @posts=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').where.not(id: @latest_post.id) unless @latest_post.nil?
-    @nationality = Geocoder.search("#{@user.nationality}")
+    nationality = Geocoder.search("#{@user.nationality}")
     #グラフの情報,達成率,全体,大陸毎
     total=numberofcontries.to_i
     national=draw_country_data(@user.nationality)
     visit=Post.where(user_id: params[:id]).select(:country).distinct.count + 1 #(国籍分)
-    @AS=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "AS").count
-    @EU=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "EU").count
-    @AF=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "AF").count
-    @NA=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "NA").count
-    @SA=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "SA").count
-    @OC=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "OC").count
+    as=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "AS").count
+    eu=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "EU").count
+    af=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "AF").count
+    na=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "NA").count
+    sa=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "SA").count
+    oc=Post.where(user_id: params[:id]).select(:country).distinct.where(continent: "OC").count
     notyet=total-visit
     if national[3]=="AS"
-      @AS += 1
+      as += 1
     elsif national[3]=="EU"
-      @EU += 1
+      eu += 1
     elsif national[3]=="AF"
-      @AF += 1
+      af += 1
     elsif national[3]=="NA"
-      @NA += 1
+      na += 1
     elsif national[3]=="SA"
-      @SA += 1
+      sa += 1
     elsif national[3]=="OC"
-      @OC += 1
+      oc += 1
     end
+    @totaldata={"訪問国": visit ,"まだ訪れていない国": notyet}
+    @continentdata={"アジア": as, "ヨーロッパ": eu, "アフリカ": af, "北アメリカ": na, "南アメリカ": sa, "オセアニア": oc }
   end
 
   # def update

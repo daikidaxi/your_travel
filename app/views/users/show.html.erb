@@ -8,30 +8,25 @@
     </div>
     <div class="col-sm-7 user-total central-vert">
       <div class="container">
-        <span><%= @user.name %><br/></span>
-        <span><%= @user.nationality %> 出身<br/></span>
-
-        <span><% if @posts.nil?%>
-                <%= 1 %>
-              <% else %>
-                <%= @posts.count+1%>
-              <% end %>
-                /<%=numberofcontries%> ヵ国訪問<br/></span>
-
-        <p><%=link_to "フォロー", follows_user_path(@user.id) %> <%=link_to "フォロワー", followers_user_path(@user.id) %></p>
+        <h3><%= @user.name %><br/></h3>
+        <span><u><%= @user.nationality %></u> 出身<br/></span>
+        <p><%=link_to "フォロー", follows_user_path(@user.id) %><%=@followings%>人 <%=link_to "フォロワー", followers_user_path(@user.id) %><%=@followers%>人</p>
         <% if logged_in? and current_user.id==@user.id %>
           <%= link_to "ユーザー情報を編集する",edit_user_registration_path(params[:id])%>
         <% end %>
         <%= render "follow" ,user: @user%>
       </div>
-      <%=@EU%><br/><%=@AS%><br/><%=@NA%><br/>
     </div>
-  </div>
+  </div><hr>
   <div class="row">
-    <div class="container col-10 offset-1"><hr></div>
-  </div>
-  <%= render "shared/map",{posts: @posts,latest_post: @latest_post,nationality: @nationality} %>
-  </div>
+    <div class="col-4 offset-2">
+      <%= pie_chart @totaldata , donut: true , suffix: "ヵ国", id: "total-chart", height: "200px", colors: ["#b01", "#677"]  %>
+    </div>
+    <div class="col-5">
+      <%= pie_chart @continentdata , donut: true , suffix: "ヵ国", id: "continent-chart", height: "200px"  %>
+    </div>
+  </div><hr>
+  <%= render "shared/map",{posts: @posts,latest_post: @latest_post,nationality: @nationality} %><hr>
 
   <% if not @latest_post.nil? %>
     <div class="row">
@@ -43,7 +38,7 @@
     
     <div class="row">
       <div class="container">
-        <% if @posts.any? or @latest_post.present? %>  
+        <% if @posts.any? or not @latest_post.present? %>  
           <p>訪れた国</p>
           <% @posts.each do |post|%>
               <%= render "users/visited", post: post %>
