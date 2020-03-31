@@ -41,20 +41,6 @@ class PostsController < ApplicationController
     redirect_to root_path, notice: "投稿を削除しました" 
   end
 
-  # def destroy
-  #   @post=Post.find(params[:id])
-  #   @post.destroy
-    
-  #   flash[:success] = "投稿を削除しました"
-  #   redirect_to request.referrer || root_url,notice: "情報を更新sakujooooしました" 
-  #   # @post = Post.find_by(id: params[:id])
-  #   # if @post.destroy
-  #   #   redirect_to root_path, notice: "削除しました" 
-  #   # else
-  #   #   render 'edit'
-  #   # end
-  # end
-
   private
     def post_params
       params.require(:post).permit(:country, :content, :visited_date, :photo, :latitude, :longitude)
