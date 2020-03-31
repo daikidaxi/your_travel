@@ -127,6 +127,18 @@ Post.create!(
 )
 Post.create!(
   user_id: 1,
+  country: "タイ",
+  visited_date: "2018-10-26",
+  content: "タイから半年の旅が始まりました",
+  latitude: 15.870032,
+  longitude: 100.992541,
+  country_en: "",
+  country_code: "TH",
+  counts: 2,
+  continent: "AS"
+)
+Post.create!(
+  user_id: 1,
   country: "スウェーデン",
   visited_date: "2018-11-02",
   content: "老後住みたい国ナンバー１！",
@@ -209,7 +221,7 @@ Post.create!(
   counts: 1,
   continent: "AF"
 )
- ####################33
+
 Post.create!(
   user_id: 1,
   country: "ドイツ",
@@ -239,7 +251,7 @@ Post.create!(
   user_id: 1,
   country: "ハンガリー",
   visited_date: "2019-01-01",
-  content: "元旦にここにいました！",
+  content: "元旦はここにいました！",
   latitude: 47.162494,
   longitude: 19.503304,
   country_en: "",
@@ -265,7 +277,7 @@ Post.create!(
   user_id: 1,
   country: "ブルガリア",
   visited_date: "2019-01-07",
-  content: "寒すぎだった！",
+  content: "寒すぎだった！ビールは２L１００円くらいの安さだった",
   latitude: 42.733883,
   longitude: 25.48583,
   country_en: "",

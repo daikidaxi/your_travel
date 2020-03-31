@@ -9,15 +9,15 @@ Your Travel
 
 https://your-traveling.herokuapp.com/
 
-現在はherokuでのデプロイですが、
+現在はherokuでのデプロイですが、段階的に
 
-・段階的にAWS(EC2、RDS、S3等)を用いてのデプロイ
+・AWS(EC2、RDS、S3等)を用いてのデプロイ
 
 ・Docker環境を形成
 
 ・CIRCLE CIでの自動テスト自動デプロイ
 
-・AWS ECSを用いる
+・AWS ECSを用いる (これはハードルが結構高い。。。)
 
 といったことを目標にしています。（テストは大事だと思いつつも後回しになってます。。。）
 

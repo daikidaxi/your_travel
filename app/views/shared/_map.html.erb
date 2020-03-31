@@ -116,6 +116,7 @@
         ],
       }
       var map = new google.maps.Map(mapArea, mapOptions);
+
       <% if @path.is("users#show") or @path.is("top_page#home") and not posts.nil? %>
         <% posts.each do |post|%>
           var newPosition ={lat: <%=post.latitude%>,lng: <%=post.longitude%>}
@@ -125,6 +126,12 @@
             icon: 'https://maps.google.com/mapfiles/ms/micons/red-dot.png',
           };
           var marker = new google.maps.Marker(markerOthers);
+          // var infoWindow = new google.maps.InfoWindow({
+          //     ontent: '<img src="https://flagpedia.net/data/flags/h40/<%=post.country_code.downcase%>.webp">'
+          // });
+          // google.maps.event.addListener(marker, 'click', function(){
+          //     infoWindow.open(map, marker);
+          // });
         <% end %>
       <% end %>
 
@@ -134,6 +141,13 @@
         icon: 'https://maps.google.com/mapfiles/ms/micons/blue-dot.png',
       };
       var latest_marker = new google.maps.Marker(singleMarkerOptions);
+      // var latest_infoWindow = new google.maps.InfoWindow({
+      //           content: '<img src="https://flagpedia.net/data/flags/h120/<%=latest_post.country_code.downcase%>.webp">'
+      //     });
+      // latest_infoWindow.open(map, latest_marker);
+
+
+
 
       <% if @path.is("users#show") and not latest_post.nil? %>
         var nationalCenter = {lat: <%=nationality.first.coordinates[0]%>,lng: <%=nationality.first.coordinates[1]%>};
@@ -143,8 +157,17 @@
           icon: 'https://maps.google.com/mapfiles/ms/micons/yellow-dot.png',
         };
         var national_marker = new google.maps.Marker(nationalMarkerOptions);
+
+        var national_infoWindow = new google.maps.InfoWindow({
+                content: '<img src="https://flagpedia.net/data/flags/h120/<%=@national[1].downcase%>.webp">'
+          });
+        national_marker.addListener('click', function() {
+            national_infoWindow.open(map, national_marker);
+            });
+
       <% end %>
 
     }
   </script>
 </div>
+
