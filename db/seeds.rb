@@ -121,7 +121,7 @@ Post.create!(
 Post.create!(
   user_id: 1,
   country: "スウェーデン",
-  visited_date: "2018-11-",
+  visited_date: "2018-11-02",
   content: "世界を旅してます！",
   latitude: 60.128161,
   longitude: 18.643501,
@@ -133,7 +133,7 @@ Post.create!(
 Post.create!(
   user_id: 1,
   country: "オランダ",
-  visited_date: "2018-11-",
+  visited_date: "2018-11-11",
   content: "世界を旅してます！",
   latitude: 52.132633,
   longitude: 5.291266,
@@ -145,7 +145,7 @@ Post.create!(
 Post.create!(
   user_id: 1,
   country: "ベルギー",
-  visited_date: "201",
+  visited_date: "2018-11-17",
   content: "！",
   latitude: 50.503887,
   longitude: 4.469936,
@@ -157,7 +157,7 @@ Post.create!(
 Post.create!(
   user_id: 1,
   country: "イギリス",
-  visited_date: "2018-11-",
+  visited_date: "2018-11-23",
   content: "世界を旅してます！",
   latitude: 55.378051,
   longitude: -3.435973,
@@ -169,7 +169,7 @@ Post.create!(
 Post.create!(
   user_id: 1,
   country: "フランス",
-  visited_date: "2018-11-",
+  visited_date: "2018-11-27",
   content: "世界を旅してます！",
   latitude: 46.227638,
   longitude: 2.213749,
@@ -181,7 +181,7 @@ Post.create!(
 Post.create!(
   user_id: 1,
   country: "スペイン",
-  visited_date: "2018-11-",
+  visited_date: "2018-12-09",
   content: "世界を旅してます！",
   latitude: 40.463667,
   longitude: -3.74922,
@@ -193,7 +193,7 @@ Post.create!(
 Post.create!(
   user_id: 1,
   country: "モロッコ",
-  visited_date: "2018-11-",
+  visited_date: "2018-12-11",
   content: "世界を旅してます！",
   latitude: 31.791702,
   longitude: -7.09262,
