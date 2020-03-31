@@ -79,6 +79,11 @@ gem 'gretel'
 # MySQL
 gem 'mysql2', '0.5.2', group: [:development, :test]
 
+# for グラフ
+gem "chartkick"
+
+
+
 # for heroku
 group :production do
   gem 'pg'
