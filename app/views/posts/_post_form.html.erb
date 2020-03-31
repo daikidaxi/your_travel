@@ -1,16 +1,16 @@
 <%= form_for post do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
+  <div class="field p-2">
     <%= f.label :country ,"国名"%><br />
-    <%= f.select :country, allcontries, class: 'country_select' %>
+    <%= f.select :country, allcontries %>
   </div>
   
-  <div class="field">
+  <div class="field p-2">
     <%= f.label :content %><br />
-    <%= f.text_field :content, class: 'content' %>
+    <%= f.text_field :content, class: 'content', :size=>"60x20" %>
   </div>
 
-  <div class="field">
+  <div class="field p-2">
     <%= f.label :visited_date ,"訪問日"%><br />
     <%= raw sprintf(f.date_select(
                   :visited_date,
@@ -18,14 +18,14 @@
                   date_separator:    '%s'), '年 ', '月 ') + '日'%>
   </div>
 
-  <div class="field">
+  <div class="field p-2">
     <%= render "post_form_photo",f: f %>
   </div>
   
   <% if @path.is('posts#new')%>
-    <%= f.submit "投稿" %>
+    <%= f.submit "投稿",class: "btn btn-primary" %>
   <% elsif @path.is('posts#edit')%>
-    <%= f.submit "更新" %>
+    <%= f.submit "更新する",class: "btn btn-primary" %>
   <% end %>
 
 <% end %>

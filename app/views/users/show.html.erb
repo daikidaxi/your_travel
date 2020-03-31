@@ -20,10 +20,10 @@
   </div><hr>
   <div class="row">
     <div class="col-4 offset-2">
-      <%= pie_chart @totaldata , donut: true , suffix: "ヵ国", id: "total-chart", height: "200px", colors: ["#b01", "#677"]  %>
+      <%= pie_chart @totaldata , dataset: {borderWidth: 0}, suffix: "ヵ国", id: "total-chart", height: "200px", colors: ["#b01", "#677"]  %>
     </div>
     <div class="col-5">
-      <%= pie_chart @continentdata , donut: true , suffix: "ヵ国", id: "continent-chart", height: "200px"  %>
+      <%= pie_chart @continentdata , dataset: {borderWidth: 0}, donut: true , suffix: "ヵ国", id: "continent-chart", height: "200px"  %>
     </div>
   </div><hr>
   <%= render "shared/map",{posts: @posts,latest_post: @latest_post,nationality: @nationality} %><hr>
