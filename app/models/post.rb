@@ -4,7 +4,6 @@ class Post < ApplicationRecord
   has_many :likes
   default_scope -> { order(visited_date: :desc) }
   validates :user_id, presence: true
-  # validates :country, uniqueness: { scope: :user_id }
   validates :content, length: { maximum: 400 }  
   validate :date_in_the_past
   validate :not_nationality?

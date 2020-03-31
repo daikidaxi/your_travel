@@ -4,7 +4,7 @@
       <%= image_tag "#{user.image}",size: "100x100",:class=>"img_circle" %>
     </div>
     <div class="col-sm-4 central-vert font-standard">
-      <span><%= link_to user.name, user %></span>
+      <span><%=image_tag "https://flagpedia.net/data/flags/h24/#{country_code(user.nationality)}.webp"%><%= link_to user.name, user %></span>
     </div>
     <div class="col-sm-5 central-vert">
       <span> <%= render"follow",user: user %></span>

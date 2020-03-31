@@ -12,7 +12,17 @@ module ApplicationHelper
     end
     return data
   end
-
+  def country_code(country)
+    data_list = CSV.read("public/countriesdata/contries_data.csv")
+    for i in 0..data_list.length-1 do
+      if data_list[i][0]==country
+        data=data_list[i]
+        code=data[1].downcase
+        break
+      end
+    end
+    return code
+  end
   # 投稿時にデータベースに入力
   def insert_country_data(post,country)
     post.country_code=draw_country_data(country)[1]
