@@ -10,7 +10,7 @@
 
       <% if @path.is("users#show") and latest_post.nil? %>
         var mapCenter = {lat: <%=nationality.first.coordinates[0]%>,lng: <%=nationality.first.coordinates[1]%>};
-      <% elsif @path.is("users#show") %>
+      <% elsif @path.is("users#show") and not latest_post.nil? %>
         var mapCenter = {lat: <%=latest_post.latitude%>,lng: <%=latest_post.longitude%>};
       <% elsif @path.is("top_page#home") and posts.any?%>
         var mapCenter = {lat: <%=posts.first.latitude%>,lng: <%=posts.first.longitude%>};
@@ -116,6 +116,7 @@
         ],
       }
       var map = new google.maps.Map(mapArea, mapOptions);
+
       <% if @path.is("users#show") or @path.is("top_page#home") and not posts.nil? %>
         <% posts.each do |post|%>
           var newPosition ={lat: <%=post.latitude%>,lng: <%=post.longitude%>}
@@ -125,6 +126,7 @@
             icon: 'https://maps.google.com/mapfiles/ms/micons/red-dot.png',
           };
           var marker = new google.maps.Marker(markerOthers);
+
         <% end %>
       <% end %>
 
@@ -135,6 +137,28 @@
       };
       var latest_marker = new google.maps.Marker(singleMarkerOptions);
 
+
+
+
+      <% if @path.is("users#show") and not latest_post.nil? %>
+        var nationalCenter = {lat: <%=nationality.first.coordinates[0]%>,lng: <%=nationality.first.coordinates[1]%>};
+        var nationalMarkerOptions = {
+          map: map,
+          position: nationalCenter,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/yellow-dot.png',
+        };
+        var national_marker = new google.maps.Marker(nationalMarkerOptions);
+
+        var national_infoWindow = new google.maps.InfoWindow({
+                content: '<img src="https://flagpedia.net/data/flags/h120/<%=@national[1].downcase%>.webp">'
+          });
+        national_marker.addListener('click', function() {
+            national_infoWindow.open(map, national_marker);
+            });
+
+      <% end %>
+
     }
   </script>
 </div>
+

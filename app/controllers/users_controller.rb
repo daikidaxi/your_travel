@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     @followers = @user.followers.count
     @latest_post=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').first
     @posts=Post.where(user_id: params[:id]).order('visited_date DESC, created_at DESC').where.not(id: @latest_post.id) unless @latest_post.nil?
-    nationality = Geocoder.search("#{@user.nationality}")
+    # .select(:country).distinct 国の一意性
+    @nationality = Geocoder.search("#{@user.nationality}")
     #グラフの情報,達成率,全体,大陸毎
     total=numberofcontries.to_i
     @national=draw_country_data(@user.nationality)
