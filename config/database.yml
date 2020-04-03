@@ -32,17 +32,17 @@ test:
   <<: *default
   database: yourtravel_test
 
-# production:
-#   <<: *default
-#   database: yourtravel_production
-
-
 production:
-  # for heroku
   <<: *default
-  adapter: postgresql
-  encoding: utf8
-  pool: 5
-  port: 5432
-  database: pg_production
-  url: <%= ENV['DATABASE_URL'] %>
+  database: yourtravel_production
+
+
+# production:
+#   # for heroku
+#   <<: *default
+#   adapter: postgresql
+#   encoding: utf8
+#   pool: 5
+#   port: 5432
+#   database: pg_production
+#   url: <%= ENV['DATABASE_URL'] %>

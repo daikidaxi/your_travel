@@ -126,12 +126,7 @@
             icon: 'https://maps.google.com/mapfiles/ms/micons/red-dot.png',
           };
           var marker = new google.maps.Marker(markerOthers);
-          // var infoWindow = new google.maps.InfoWindow({
-          //     ontent: '<img src="https://flagpedia.net/data/flags/h40/<%=post.country_code.downcase%>.webp">'
-          // });
-          // google.maps.event.addListener(marker, 'click', function(){
-          //     infoWindow.open(map, marker);
-          // });
+
         <% end %>
       <% end %>
 
@@ -141,10 +136,6 @@
         icon: 'https://maps.google.com/mapfiles/ms/micons/blue-dot.png',
       };
       var latest_marker = new google.maps.Marker(singleMarkerOptions);
-      // var latest_infoWindow = new google.maps.InfoWindow({
-      //           content: '<img src="https://flagpedia.net/data/flags/h120/<%=latest_post.country_code.downcase%>.webp">'
-      //     });
-      // latest_infoWindow.open(map, latest_marker);
 
 
 
