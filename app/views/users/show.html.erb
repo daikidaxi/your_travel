@@ -9,7 +9,7 @@
     <div class="col-sm-7 user-total central-vert">
       <div class="container">
         <h3><%= @user.name %><br/></h3>
-        <span><%=image_tag "https://flagpedia.net/data/flags/h24/#{@national[1].downcase}.webp"%><u><%= @user.nationality %></u> 出身<br/></span>
+        <span><%=image_tag "https://flagpedia.net/data/flags/h24/#{@national[1].downcase}.png"%><u><%= @user.nationality %></u> 出身<br/></span>
         <p><%=link_to "フォロー", follows_user_path(@user.id) %><%=@followings%>人 <%=link_to "フォロワー", followers_user_path(@user.id) %><%=@followers%>人</p>
         <% if logged_in? and current_user.id==@user.id %>
           <%= link_to "ユーザー情報を編集する",edit_user_registration_path(params[:id])%>
