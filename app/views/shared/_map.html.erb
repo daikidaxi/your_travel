@@ -129,6 +129,7 @@
 
         <% end %>
       <% end %>
+    
 
       var singleMarkerOptions = {
         map: map,
@@ -136,11 +137,18 @@
         icon: 'https://maps.google.com/mapfiles/ms/micons/blue-dot.png',
       };
       var latest_marker = new google.maps.Marker(singleMarkerOptions);
+      <% if @path.is("users#show")%>
+        var latest_contentStr = '<p>最後に訪れた国</p><img src="https://flagpedia.net/data/flags/h120/<%=latest_post.country_code.downcase%>.png">';
+      <% end%>
+      var latest_infoWindow = new google.maps.InfoWindow({
+              content: latest_contentStr,
+      });
+      latest_marker.addListener('click', function() {
+          latest_infoWindow.open(map, latest_marker);
+      });
 
 
-
-
-      <% if @path.is("users#show") and not latest_post.nil? %>
+      <% if @path.is("users#show") %>
         var nationalCenter = {lat: <%=nationality.first.coordinates[0]%>,lng: <%=nationality.first.coordinates[1]%>};
         var nationalMarkerOptions = {
           map: map,
@@ -148,15 +156,16 @@
           icon: 'https://maps.google.com/mapfiles/ms/micons/yellow-dot.png',
         };
         var national_marker = new google.maps.Marker(nationalMarkerOptions);
-        var contentStr = '<img src="https://flagpedia.net/data/flags/h120/<%=@national[1].downcase%>.webp"><img><p>出身国:<%=link_to national[0],"/countries/country?name=#{national[0]}"%></p>';
+        var contentStr = '<img src="https://flagpedia.net/data/flags/h120/<%=@national[1].downcase%>.png"><img><p>出身国:<%=link_to national[0],"/countries/country?name=#{national[0]}"%></p>';
         var national_infoWindow = new google.maps.InfoWindow({
                 content: contentStr,
-          });
+        });
         national_marker.addListener('click', function() {
             national_infoWindow.open(map, national_marker);
-            });
-
+        });
       <% end %>
+
+      
 
     }
   </script>

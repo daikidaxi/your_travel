@@ -10,7 +10,7 @@
     <% @countries_data.each do |country|%>
       <div class="col-md-6">
         <div class="text-center h4 country-card">
-          <img  src="https://flagpedia.net/data/flags/h120/<%=country[1].downcase%>.webp"><br/>
+          <img  src="https://flagpedia.net/data/flags/h120/<%=country[1].downcase%>.png"><br/>
           <%=link_to country[0],"/countries/country?name=#{country[0]}"%>
         </div>
         

@@ -5,7 +5,7 @@
 <div class="container">
   <div class="container country-info">
     <div class="row">
-        <div class="col-sm-4 offset-sm-2 central-hori"><img src="https://flagpedia.net/data/flags/h120/<%=@code.downcase%>.webp"></div>
+        <div class="col-sm-4 offset-sm-2 central-hori"><img src="https://flagpedia.net/data/flags/h120/<%=@code.downcase%>.png"></div>
         <div class="col-sm-6 central-vert large-font"><%=@name%></div>
 
     </div>
@@ -20,18 +20,22 @@
   </div>
 
   <hr>
-  <%= render "shared/map",{results: @results} %>
+  <%= render "shared/map",{results: @results, name: @name} %>
   <hr>
   <div class="row">
-    <h3>みんなの投稿</h3><br/>
-    <% if @posts.length==0%>
-      まだ訪れた人はいません
-    <% else %>
-      <div class="container">
-        <% @posts.each do |post| %>
-            <%= render"users/visited",post: post %>
-        <% end %>
-      </div>
-    <% end %>
+    <div class="container">
+
+      <h3>みんなの投稿</h3><br/>
+
+      <% if @posts.length==0%>
+        <p>まだ訪れた人はいません</p>
+      <% else %>
+        <div class="container">
+          <% @posts.each do |post| %>
+              <%= render"users/visited",post: post %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
