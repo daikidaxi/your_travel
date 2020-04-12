@@ -35,9 +35,13 @@
             <span><%= fa_icon 'home' %>ホーム</span>
           <% end %>
       </div>
-      <div class="container content-box">
-        <p class="notice"><%= notice %></p>
+      <div class="container text-center">
+        <div class="offset-3 col-6">
+          <p class="notice"><%= notice %></p>
+        </div>
         <p class="alert"><%= alert %></p>
+      </div>
+      <div class="container content-box">
         <%= yield %>
         <p class="padd-bottom"></p>
       </div>
