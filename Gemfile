@@ -85,6 +85,10 @@ gem 'mysql2', '0.5.2', group: [:development, :test]
 gem "chartkick"
 
 
+group :production, :staging do
+    gem 'unicorn'
+end
+
 
 # for heroku
 # group :production do
