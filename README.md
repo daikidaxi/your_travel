@@ -4,6 +4,12 @@ https://your-travel.xyz/
 ユーザーが世界を旅してどの国に行ったかを記録するアプリです。  
 世界約２００カ国のうちどこに行ったかを記録します。
 
+
+（AWS、GCP無料期間終了したため、こちらでご覧ください。）
+https://your-traveling.herokuapp.com/
+
+
+
 # 環境
 ## 言語・FW  
 - ruby 2.6.5  
