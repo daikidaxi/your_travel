@@ -5,7 +5,7 @@ https://your-travel.xyz/
 世界約２００カ国のうちどこに行ったかを記録します。
 
 
-（AWS、GCP無料期間終了したため、こちらでご覧ください。
+（AWS、GCP無料期間終了したため、こちらでご覧ください。バグもある古いバージョンのものですが雰囲気は分かります。
 https://your-traveling.herokuapp.com/
 ）
 
